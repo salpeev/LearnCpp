@@ -7,20 +7,31 @@
 //
 
 #include <iostream>
-#include <cmath>
+
+
+
+void Simon(int n);
+
 
 
 int main()
 {
     using namespace std;
     
-    double area;
-    cout << "Enter the floor area, in the square feet, of your home: ";
-    cin >> area;
+    int n;
+    cout << "Pick an integer: ";
+    cin >> n;
     
-    double side = sqrt(area);
-    cout << "That's the equivalent of the square " << side << " feet to the side" << endl;
-    cout << "How fascinating!" << endl;
+    Simon(n);
     
     return 0;
+}
+
+
+
+void Simon(int n)
+{
+    using namespace std;
+    
+    cout << "Simon says touch you toes " << n << " times" << endl;
 }
