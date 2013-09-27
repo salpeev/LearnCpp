@@ -18,8 +18,7 @@ int main()
     cout << "Enter the floor area, in the square feet, of your home: ";
     cin >> area;
     
-    double side;
-    side = sqrt(area);
+    double side = sqrt(area);
     cout << "That's the equivalent of the square " << side << " feet to the side" << endl;
     cout << "How fascinating!" << endl;
     
