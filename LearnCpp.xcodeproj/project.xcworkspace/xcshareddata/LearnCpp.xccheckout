@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>725F702A-0562-4A52-9FFE-25726644E44B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LearnCpp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>441981D0-6AF9-4C01-9BD4-AD27E976B73F</key>
+		<string>https://github.com/salpeev/LearnCpp/trunk</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LearnCpp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>441981D0-6AF9-4C01-9BD4-AD27E976B73F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>441981D0-6AF9-4C01-9BD4-AD27E976B73F</key>
+		<string>https://github.com/salpeev/LearnCpp</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/salpeev/LearnCpp/trunk/LearnCpp.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>441981D0-6AF9-4C01-9BD4-AD27E976B73F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
+			<string>branches</string>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
+			<string>trunk</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>441981D0-6AF9-4C01-9BD4-AD27E976B73F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LearnCpp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
