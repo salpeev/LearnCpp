@@ -21,13 +21,13 @@ int main()
     
     short n_short = SHRT_MAX;
     int n_int = INT_MAX;
-    long n_long = LONG_MAX;
-    long long n_llong = LONG_LONG_MAX;
+    long n_long(LONG_MAX);
+    long long n_llong(LONG_LONG_MAX);
     
     cout << "short width: " << sizeof(short) << endl;
     cout << "int width: " << sizeof(int) << endl;
-    cout << "long width: " << sizeof(long) << endl;
-    cout << "long long width: " << sizeof(long long) << endl;
+    cout << "long width: " << sizeof(n_long) << endl;
+    cout << "long long width: " << sizeof(n_llong) << endl;
     cout << endl;
     
     cout << "max short: " << n_short << endl;
