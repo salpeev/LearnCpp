@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <climits>
 
 
 
@@ -18,13 +19,25 @@ int main()
 {
     using namespace std;
     
-    int stone;
-    cout << "Enter the weibht in stone: ";
-    cin >> stone;
+    short n_short = SHRT_MAX;
+    int n_int = INT_MAX;
+    long n_long = LONG_MAX;
+    long long n_llong = LONG_LONG_MAX;
     
-    int pounds = StoneToLb(stone);
+    cout << "short width: " << sizeof(short) << endl;
+    cout << "int width: " << sizeof(int) << endl;
+    cout << "long width: " << sizeof(long) << endl;
+    cout << "long long width: " << sizeof(long long) << endl;
+    cout << endl;
     
-    cout << stone << " stone = " << pounds << endl;
+    cout << "max short: " << n_short << endl;
+    cout << "max int: " << n_int << endl;
+    cout << "max long: " << n_long << endl;
+    cout << "max long long: " << n_llong << endl;
+    cout << endl;
+    
+    cout << "min int: " << INT_MIN << endl;
+    cout << "bits per byte: " << CHAR_BIT << endl;
     
     return 0;
 }
