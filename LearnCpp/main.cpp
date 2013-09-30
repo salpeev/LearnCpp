@@ -10,7 +10,7 @@
 
 
 
-void Simon(int n);
+int StoneToLb(int sts);
 
 
 
@@ -18,20 +18,20 @@ int main()
 {
     using namespace std;
     
-    int n;
-    cout << "Pick an integer: ";
-    cin >> n;
+    int stone;
+    cout << "Enter the weibht in stone: ";
+    cin >> stone;
     
-    Simon(n);
+    int pounds = StoneToLb(stone);
+    
+    cout << stone << " stone = " << pounds << endl;
     
     return 0;
 }
 
 
 
-void Simon(int n)
+int StoneToLb(int sts)
 {
-    using namespace std;
-    
-    cout << "Simon says touch you toes " << n << " times" << endl;
+    return 14 * sts;
 }
