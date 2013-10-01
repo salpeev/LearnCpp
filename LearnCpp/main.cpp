@@ -23,25 +23,13 @@ int main()
 {
     using namespace std;
     
-    short sam = SHRT_MAX;
-    unsigned short sue = sam;
-    cout << "sam: " << sam << "   sue: " << sue << endl;
+    int chest = 42;         // dec
+    int waist = 0x42;       // hex
+    int inseam = 042;       // oct
     
-    cout << "Add 1" << endl;
-    
-    sam = sam + 1;
-    sue = sue + 1;
-    cout << "sam: " << sam << "   sue: " << sue << endl;
-    
-    sam = ZERO;
-    sue = ZERO;
-    cout << "sam: " << sam << "   sue: " << sue << endl;
-    
-    cout << "Take 1" << endl;
-    
-    sam = sam - 1;
-    sue = sue - 1;
-    cout << "sam: " << sam << "   sue: " << sue << endl;
+    cout << "chest = " << chest << endl;
+    cout << "waist = " << waist << endl;
+    cout << "inseam = " << inseam << endl;
     
     return 0;
 }
