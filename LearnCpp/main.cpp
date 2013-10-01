@@ -23,12 +23,17 @@ int main()
 {
     using namespace std;
     
-    char ch;
+    char ch = 'M';
+    int i = ch;
+    cout << "ASCII for " << ch << " is " << i << endl;
     
-    cout << "Enter a character: ";
-    cin >> ch;
+    ch = ch + 1;
+    i = ch;
+    cout << "ASCII for " << ch << " is " << i << endl;
     
-    cout << "Character: " << ch << endl;
+    cout.put(ch);
+    cout.put('!');
+    cout << endl;
     
     return 0;
 }
