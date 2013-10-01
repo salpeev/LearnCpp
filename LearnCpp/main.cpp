@@ -11,36 +11,18 @@
 
 
 
-#define ZERO 0
-
-
-
-int StoneToLb(int sts);
-
-
-
 int main()
 {
     using namespace std;
     
-    char ch = 'M';
-    int i = ch;
-    cout << "ASCII for " << ch << " is " << i << endl;
+    cout << "\aOperation \"HyperHipe\" is now activated!\n";
+    cout << "Enter your agent code: ________\b\b\b\b\b\b\b\b";
     
-    ch = ch + 1;
-    i = ch;
-    cout << "ASCII for " << ch << " is " << i << endl;
+    long code;
+    cin >> code;
     
-    cout.put(ch);
-    cout.put('!');
-    cout << endl;
+    cout << "\aYou entered " << code << "...\n";
+    cout << "\aCode verified! Proceed with Plan Z3!\n";
     
     return 0;
-}
-
-
-
-int StoneToLb(int sts)
-{
-    return 14 * sts;
 }
