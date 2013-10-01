@@ -23,13 +23,12 @@ int main()
 {
     using namespace std;
     
-    int chest = 42;
-    int waist = 42;
-    int inseam = 42;
+    char ch;
     
-    cout << "chest = " << dec << chest << endl;
-    cout << "waist = " << hex << waist << endl;
-    cout << "inseam = " << oct << inseam << endl;
+    cout << "Enter a character: ";
+    cin >> ch;
+    
+    cout << "Character: " << ch << endl;
     
     return 0;
 }
