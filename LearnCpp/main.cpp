@@ -23,13 +23,13 @@ int main()
 {
     using namespace std;
     
-    int chest = 42;         // dec
-    int waist = 0x42;       // hex
-    int inseam = 042;       // oct
+    int chest = 42;
+    int waist = 42;
+    int inseam = 42;
     
-    cout << "chest = " << chest << endl;
-    cout << "waist = " << waist << endl;
-    cout << "inseam = " << inseam << endl;
+    cout << "chest = " << dec << chest << endl;
+    cout << "waist = " << hex << waist << endl;
+    cout << "inseam = " << oct << inseam << endl;
     
     return 0;
 }
