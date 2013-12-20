@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <cfloat>
 
 
 
@@ -14,9 +15,7 @@ int main()
 {
     using namespace std;
     
-    wchar_t test = L'A';
-    wcout << test << endl;
-    wcout << L"TEST" << endl;
+    cout << DBL_DIG << endl;
     
     return 0;
 }
