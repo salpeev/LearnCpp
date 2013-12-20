@@ -14,16 +14,15 @@ int main()
 {
     using namespace std;
     
-    const int Lbs_per_stn = 14;
+    cout.setf(ios_base::fixed, ios_base::floatfield);
     
-    int lbs;
-    cout << "Enter your weight in pounds: ";
-    cin >> lbs;
+    float tree = 3;
+    int guess(3.9832);
+    int debt = 7.2E12;
     
-    int stone = lbs / Lbs_per_stn;
-    int punds = lbs % Lbs_per_stn;
-    
-    cout << "Stone " << stone << ", pounds: " << punds << endl;
+    cout << "tree = " << tree << endl;
+    cout << "guess = " << guess << endl;
+    cout << "debt = " << debt << endl;
     
     return 0;
 }
