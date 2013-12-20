@@ -14,13 +14,20 @@ int main()
 {
     using namespace std;
     
+    float hats, heads;
     cout.setf(ios_base::fixed, ios_base::floatfield);
     
-    float a = 2.34E+22f;
-    float b = a + 1.0f;
+    cout << "Enter a number: ";
+    cin >> hats;
+    cout << "Enter another number: ";
+    cin >> heads;
     
-    cout << "a = " << a << endl;
-    cout << "(b - a) = " << (b - a) << endl;
+    cout << "hats: " << hats << "; heads: " << heads << endl;
+    
+    cout << "hats + heads = " << hats + heads << endl;
+    cout << "hats - heads = " << hats - heads << endl;
+    cout << "hats * heads = " << hats * heads << endl;
+    cout << "hats / heads = " << hats / heads << endl;
     
     return 0;
 }
