@@ -14,19 +14,21 @@ int main()
 {
     using namespace std;
     
-    int auks, bats, coots;
+    int yams[3];
+    yams[0] = 7;
+    yams[1] = 8;
+    yams[2] = 6;
     
-    auks = 19.99 + 11.99;
-    bats = (int)19.99 + (int)11.99;     // Old C syntax
-    coots = int(19.99) + int(11.99);    // New C++ syntax
+    int yamcosts[3] = {20, 30, 5};
     
-    cout << "auks = " << auks << endl;
-    cout << "bats = " << bats << endl;
-    cout << "coots = " << coots << endl;
+    cout << "Yams: " << yams[0] + yams[1] + yams[2] << endl;
+    cout << "The package with " << yams[1] << " costs " << yamcosts[1] << " cents per yam." << endl;
     
-    char ch = 'Z';
-    cout << "The code for Z: " << int(ch) << endl;
-    cout << "The code for Z: " << static_cast<int>(ch) << endl;
+    int total = yams[0] * yamcosts[0] + yams[1] * yamcosts[1] + yams[2] * yamcosts[2];
+    cout << "Total: " << total << endl;
+    
+    cout << "Array size: " << sizeof(yams) << endl;
+    cout << "Element size: " << sizeof(yams[0]) << endl;
     
     return 0;
 }
