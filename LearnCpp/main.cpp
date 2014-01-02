@@ -15,23 +15,30 @@ int main()
 {
     using namespace std;
     
-    char charr1[20];
-    char charr2[20] = "jaguar";
-    string str1;
-    string str2 = "panther";
+    string s1 = "penguin";
+    string s2;
+    string s3;
     
-    cout << "Enter feline: ";
-    cin >> charr1;
-    cout << "Enter another feline: ";
-    cin >> str1;
+    s2 = s1;
+    cout << "s1: " << s1 << endl;
+    cout << "s2: " << s2 << endl;
     cout << endl;
     
-    cout << "charr1: " << charr1 << endl;
-    cout << "str1: " << str1 << endl;
+    s2 = "bussard";
+    cout << "s2: " << s2 << endl;
     cout << endl;
     
-    cout << "charr2[2]: " << charr2[2] << endl;
-    cout << "str2[2]: " << str2[2] << endl;
+    s3 = s1 + s2;
+    cout << "s3: " << s3 << endl;
+    cout << endl;
+    
+    s1 += s2;
+    cout << "s1: " << s1 << endl;
+    cout << endl;
+    
+    s2 += " for a day";
+    cout << "s2: " << s2 << endl;
+    cout << endl;
     
     return 0;
 }
