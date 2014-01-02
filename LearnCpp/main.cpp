@@ -16,22 +16,26 @@ int main()
 {
     using namespace std;
     
-    char charr1[20];
-    char charr2[20] = "jaguar";
-    string str1;
-    string str2 = "panther";
+    char charr[20];
+    string str;
     
-    str1 = str2;
-    strcpy(charr1, charr2);
+    cout << "charr length: " << strlen(charr) << endl;
+    cout << "str length: " << str.size() << endl;
+    cout << endl;
     
-    str1 += " paste";
-    strcat(charr1, " juice");
+    cout << "Enter a text: ";
+    cin.getline(charr, 20);
+    cout << "charr: " << charr << endl;
+    cout << endl;
     
-    size_t len1 = str1.size();
-    size_t len2 = strlen(charr1);
+    cout << "Enter another text: ";
+    getline(cin, str);
+    cout << "str: " << str << endl;
+    cout << endl;
     
-    cout << "len1: " << len1 << endl;
-    cout << "len2: " << len2 << endl;
+    cout << "charr length: " << strlen(charr) << endl;
+    cout << "str length: " << str.size() << endl;
+    cout << endl;
     
     return 0;
 }
