@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
 
 
 
@@ -15,30 +16,22 @@ int main()
 {
     using namespace std;
     
-    string s1 = "penguin";
-    string s2;
-    string s3;
+    char charr1[20];
+    char charr2[20] = "jaguar";
+    string str1;
+    string str2 = "panther";
     
-    s2 = s1;
-    cout << "s1: " << s1 << endl;
-    cout << "s2: " << s2 << endl;
-    cout << endl;
+    str1 = str2;
+    strcpy(charr1, charr2);
     
-    s2 = "bussard";
-    cout << "s2: " << s2 << endl;
-    cout << endl;
+    str1 += " paste";
+    strcat(charr1, " juice");
     
-    s3 = s1 + s2;
-    cout << "s3: " << s3 << endl;
-    cout << endl;
+    size_t len1 = str1.size();
+    size_t len2 = strlen(charr1);
     
-    s1 += s2;
-    cout << "s1: " << s1 << endl;
-    cout << endl;
-    
-    s2 += " for a day";
-    cout << "s2: " << s2 << endl;
-    cout << endl;
+    cout << "len1: " << len1 << endl;
+    cout << "len2: " << len2 << endl;
     
     return 0;
 }
