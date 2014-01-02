@@ -14,19 +14,15 @@ int main()
 {
     using namespace std;
     
-    const int ArSize = 20;
+    int year;
+    cout << "Enter a year: ";
+    (cin >> year).get();
     
-    char name[ArSize];
-    char dessert[ArSize];
+    char address[80];
+    cout << "Enter an address: ";
+    cin.getline(address, 80);
     
-    // Try two words1234
-    cout << "Enter a name: ";
-    cin.get(name, ArSize).get();
-    
-    cout << "Enter a dessert: ";
-    cin.get(dessert, ArSize).get();
-    
-    cout << "Name: " << name << "\tdessert: " << dessert << endl;
+    cout << "Year: " << year << "\taddress: " << address << endl;
     
     return 0;
 }
