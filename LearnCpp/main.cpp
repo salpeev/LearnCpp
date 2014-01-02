@@ -21,10 +21,10 @@ int main()
     
     // Try two words1234
     cout << "Enter a name: ";
-    cin >> name;
+    cin.getline(name, ArSize);
     
     cout << "Enter a dessert: ";
-    cin >> dessert;
+    cin.getline(dessert, ArSize);
     
     cout << "Name: " << name << "\tdessert: " << dessert << endl;
     
