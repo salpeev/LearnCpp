@@ -7,7 +7,6 @@
 //
 
 #include <iostream>
-#include <cstring>
 
 
 
@@ -15,23 +14,19 @@ int main()
 {
     using namespace std;
     
-    const int Size = 15;
-    char name1[Size];
-    char name2[Size] = "C++owboy";
+    const int ArSize = 20;
     
-    cout << "Enter name1: ";
-    cin >> name1;
+    char name[ArSize];
+    char dessert[ArSize];
     
-    cout << "name1: " << name1 << endl;
-    cout << "name2: " << name2 << endl;
-    cout << endl;
+    // Try two words1234
+    cout << "Enter a name: ";
+    cin >> name;
     
-    cout << "name1 len: " << strlen(name1) << endl;
-    cout << "name1 size: " << sizeof(name1) << endl;
-    cout << endl;
+    cout << "Enter a dessert: ";
+    cin >> dessert;
     
-    name2[3] = '\0';
-    cout << "name2: " << name2 << endl;
+    cout << "Name: " << name << "\tdessert: " << dessert << endl;
     
     return 0;
 }
