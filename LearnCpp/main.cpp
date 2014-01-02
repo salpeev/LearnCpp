@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <cstring>
 
 
 
@@ -14,21 +15,23 @@ int main()
 {
     using namespace std;
     
-    int yams[3];
-    yams[0] = 7;
-    yams[1] = 8;
-    yams[2] = 6;
+    const int Size = 15;
+    char name1[Size];
+    char name2[Size] = "C++owboy";
     
-    int yamcosts[3] = {20, 30, 5};
+    cout << "Enter name1: ";
+    cin >> name1;
     
-    cout << "Yams: " << yams[0] + yams[1] + yams[2] << endl;
-    cout << "The package with " << yams[1] << " costs " << yamcosts[1] << " cents per yam." << endl;
+    cout << "name1: " << name1 << endl;
+    cout << "name2: " << name2 << endl;
+    cout << endl;
     
-    int total = yams[0] * yamcosts[0] + yams[1] * yamcosts[1] + yams[2] * yamcosts[2];
-    cout << "Total: " << total << endl;
+    cout << "name1 len: " << strlen(name1) << endl;
+    cout << "name1 size: " << sizeof(name1) << endl;
+    cout << endl;
     
-    cout << "Array size: " << sizeof(yams) << endl;
-    cout << "Element size: " << sizeof(yams[0]) << endl;
+    name2[3] = '\0';
+    cout << "name2: " << name2 << endl;
     
     return 0;
 }
