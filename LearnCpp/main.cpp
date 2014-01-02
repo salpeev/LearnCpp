@@ -16,26 +16,14 @@ int main()
 {
     using namespace std;
     
-    char charr[20];
-    string str;
+    wchar_t str1[] = L"String 1";
+    char16_t str2[] = u"String 2";
+    char32_t str3[] = U"String 3";
     
-    cout << "charr length: " << strlen(charr) << endl;
-    cout << "str length: " << str.size() << endl;
-    cout << endl;
-    
-    cout << "Enter a text: ";
-    cin.getline(charr, 20);
-    cout << "charr: " << charr << endl;
-    cout << endl;
-    
-    cout << "Enter another text: ";
-    getline(cin, str);
-    cout << "str: " << str << endl;
-    cout << endl;
-    
-    cout << "charr length: " << strlen(charr) << endl;
-    cout << "str length: " << str.size() << endl;
-    cout << endl;
+    cout << str1 << endl;
+    cout << str2 << endl;
+    cout << str3 << endl;
+    cout << u8"String 4" << endl;
     
     return 0;
 }
