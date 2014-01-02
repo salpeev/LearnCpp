@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <string>
 
 
 
@@ -14,15 +15,23 @@ int main()
 {
     using namespace std;
     
-    int year;
-    cout << "Enter a year: ";
-    (cin >> year).get();
+    char charr1[20];
+    char charr2[20] = "jaguar";
+    string str1;
+    string str2 = "panther";
     
-    char address[80];
-    cout << "Enter an address: ";
-    cin.getline(address, 80);
+    cout << "Enter feline: ";
+    cin >> charr1;
+    cout << "Enter another feline: ";
+    cin >> str1;
+    cout << endl;
     
-    cout << "Year: " << year << "\taddress: " << address << endl;
+    cout << "charr1: " << charr1 << endl;
+    cout << "str1: " << str1 << endl;
+    cout << endl;
+    
+    cout << "charr2[2]: " << charr2[2] << endl;
+    cout << "str2[2]: " << str2[2] << endl;
     
     return 0;
 }
