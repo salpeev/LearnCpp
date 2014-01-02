@@ -24,6 +24,8 @@ int main()
     cout << str2 << endl;
     cout << str3 << endl;
     cout << u8"String 4" << endl;
+    cout << R"(Strign 5 "" \n)" << endl;
+    cout << R"+*(Test "(String 6)" test)+*" << endl;
     
     return 0;
 }
