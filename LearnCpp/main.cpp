@@ -7,8 +7,15 @@
 //
 
 #include <iostream>
-#include <string>
-#include <cstring>
+
+
+
+struct inflatable
+{
+    char name[20];
+    float volume;
+    double price;
+};
 
 
 
@@ -16,16 +23,23 @@ int main()
 {
     using namespace std;
     
-    wchar_t str1[] = L"String 1";
-    char16_t str2[] = u"String 2";
-    char32_t str3[] = U"String 3";
+    inflatable guest =
+    {
+        "Glorius Gloria",
+        1.88,
+        29.99
+    };
     
-    cout << str1 << endl;
-    cout << str2 << endl;
-    cout << str3 << endl;
-    cout << u8"String 4" << endl;
-    cout << R"(Strign 5 "" \n)" << endl;
-    cout << R"+*(Test "(String 6)" test)+*" << endl;
+    inflatable par =
+    {
+        "Audacious Arthur",
+        3.12,
+        32.99
+    };
+    
+    cout << "guest name: " << guest.name << endl;
+    cout << "par name: " << par.name << endl;
+    cout << "total price: " << guest.price + par.price << endl;
     
     return 0;
 }
