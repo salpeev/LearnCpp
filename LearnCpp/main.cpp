@@ -23,7 +23,7 @@ int main()
 {
     using namespace std;
     
-    inflatable guest =
+    inflatable guest
     {
         "Glorius Gloria",
         1.88,
