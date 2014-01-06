@@ -10,12 +10,11 @@
 
 
 
-struct torgle_register
+union one4all
 {
-    unsigned int SN: 4;
-    unsigned int: 4;
-    bool goodIn: 1;
-    bool goodTorgle: 1;
+    int int_val;
+    long long_val;
+    double double_val;
 };
 
 
@@ -24,11 +23,30 @@ int main()
 {
     using namespace std;
     
-    torgle_register t_register;
-    t_register.SN = 15;
+    one4all pail;
     
-    cout << "SIZE: " << sizeof(t_register) << endl;
-    cout << "SN: " << t_register.SN << endl;
+    cout << "SIZE: " << sizeof(pail) << endl;
+    
+    pail.int_val = 15;
+    
+    cout << "INT: " << pail.int_val << endl;
+    cout << "LONG: " << pail.long_val << endl;
+    cout << "DOUBLE: " << pail.double_val << endl;
+    cout << endl;
+    
+    pail.long_val = 15;
+    
+    cout << "INT: " << pail.int_val << endl;
+    cout << "LONG: " << pail.long_val << endl;
+    cout << "DOUBLE: " << pail.double_val << endl;
+    cout << endl;
+    
+    pail.double_val = 15.0;
+    
+    cout << "INT: " << pail.int_val << endl;
+    cout << "LONG: " << pail.long_val << endl;
+    cout << "DOUBLE: " << pail.double_val << endl;
+    cout << endl;
     
     return 0;
 }
