@@ -10,11 +10,12 @@
 
 
 
-struct inflatable
+struct torgle_register
 {
-    char name[20];
-    float volume;
-    double price;
+    unsigned int SN: 4;
+    unsigned int: 4;
+    bool goodIn: 1;
+    bool goodTorgle: 1;
 };
 
 
@@ -23,18 +24,11 @@ int main()
 {
     using namespace std;
     
-    inflatable guests[2] =
-    {
-        {"Bambie", 0.5, 21.99},
-        {"Godzilla", 2000, 565.99}
-    };
+    torgle_register t_register;
+    t_register.SN = 15;
     
-    cout << "guests[0] name: " << guests[0].name << endl;
-    cout << "guests[0] price: " << guests[0].price << endl;
-    cout << endl;
-    
-    cout << "guests[1] name: " << guests[1].name << endl;
-    cout << "guests[1] price: " << guests[1].price << endl;
+    cout << "SIZE: " << sizeof(t_register) << endl;
+    cout << "SN: " << t_register.SN << endl;
     
     return 0;
 }
