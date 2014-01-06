@@ -30,16 +30,11 @@ int main()
         29.99
     };
     
-    inflatable par =
-    {
-        "Audacious Arthur",
-        3.12,
-        32.99
-    };
+    inflatable par = guest;
     
-    cout << "guest name: " << guest.name << endl;
     cout << "par name: " << par.name << endl;
-    cout << "total price: " << guest.price + par.price << endl;
+    cout << "par volume: " << par.volume << endl;
+    cout << "par price: " << par.price << endl;
     
     return 0;
 }
