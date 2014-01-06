@@ -23,18 +23,18 @@ int main()
 {
     using namespace std;
     
-    inflatable guest
+    inflatable guests[2] =
     {
-        "Glorius Gloria",
-        1.88,
-        29.99
+        {"Bambie", 0.5, 21.99},
+        {"Godzilla", 2000, 565.99}
     };
     
-    inflatable par = guest;
+    cout << "guests[0] name: " << guests[0].name << endl;
+    cout << "guests[0] price: " << guests[0].price << endl;
+    cout << endl;
     
-    cout << "par name: " << par.name << endl;
-    cout << "par volume: " << par.volume << endl;
-    cout << "par price: " << par.price << endl;
+    cout << "guests[1] name: " << guests[1].name << endl;
+    cout << "guests[1] price: " << guests[1].price << endl;
     
     return 0;
 }
