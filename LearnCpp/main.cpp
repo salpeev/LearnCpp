@@ -10,43 +10,15 @@
 
 
 
-union one4all
-{
-    int int_val;
-    long long_val;
-    double double_val;
-};
-
-
-
 int main()
 {
     using namespace std;
     
-    one4all pail;
+    int donuts = 6;
+    double cups = 4.5;
     
-    cout << "SIZE: " << sizeof(pail) << endl;
-    
-    pail.int_val = 15;
-    
-    cout << "INT: " << pail.int_val << endl;
-    cout << "LONG: " << pail.long_val << endl;
-    cout << "DOUBLE: " << pail.double_val << endl;
-    cout << endl;
-    
-    pail.long_val = 15;
-    
-    cout << "INT: " << pail.int_val << endl;
-    cout << "LONG: " << pail.long_val << endl;
-    cout << "DOUBLE: " << pail.double_val << endl;
-    cout << endl;
-    
-    pail.double_val = 15.0;
-    
-    cout << "INT: " << pail.int_val << endl;
-    cout << "LONG: " << pail.long_val << endl;
-    cout << "DOUBLE: " << pail.double_val << endl;
-    cout << endl;
+    cout << &donuts << "\t" << donuts << endl;
+    cout << &cups << "\t" << cups << endl;
     
     return 0;
 }
