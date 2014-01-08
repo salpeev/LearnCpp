@@ -14,11 +14,19 @@ int main()
 {
     using namespace std;
     
-    int donuts = 6;
-    double cups = 4.5;
+    int updates = 6;
+    int *p_updates = &updates;
     
-    cout << &donuts << "\t" << donuts << endl;
-    cout << &cups << "\t" << cups << endl;
+    cout << "updates: " << updates << endl;
+    cout << "*p_updates: " << *p_updates << endl;
+    cout << endl;
+    
+    cout << "&updates: " << &updates << endl;
+    cout << "p_updates: " << p_updates << endl;
+    cout << endl;
+    
+    *p_updates = *p_updates + 1;
+    cout << "updates: " << updates << endl;
     
     return 0;
 }
