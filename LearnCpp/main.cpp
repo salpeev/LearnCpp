@@ -14,20 +14,24 @@ int main()
 {
     using namespace std;
     
-    int updates = 6;
-    int *p_updates;
-    p_updates = &updates;
+    cout.setf(ios_base::fixed, ios_base::floatfield);
     
-    cout << "updates: " << updates << endl;
-    cout << "*p_updates: " << *p_updates << endl;
+    int nights = 1001;
+    int *pt = new int;
+    *pt = 1001;
+    
+    cout << "&nights: " << &nights << "\t\tnights: " << nights << endl;
+    cout << "pt: "<< pt << "\t\t\t\t*pt: " << *pt << endl;
     cout << endl;
     
-    cout << "&updates: " << &updates << endl;
-    cout << "p_updates: " << p_updates << endl;
+    double *pd = new double;
+    *pd = 10000001.0;
+    
+    cout << "pd: " << pd << "\t\t\t\t*pd: " << *pd << endl;
     cout << endl;
     
-    *p_updates = *p_updates + 1;
-    cout << "updates: " << updates << endl;
+    cout << "sizeof(pt): " << sizeof(pt) << "\t\tsizeof(*pt)" << sizeof(*pt) << endl;
+    cout << "sizeof(pd): " << sizeof(pd) << "\t\tsizeof(*pd)" << sizeof(*pd) << endl;
     
     return 0;
 }
