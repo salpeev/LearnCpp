@@ -33,5 +33,8 @@ int main()
     cout << "sizeof(pt): " << sizeof(pt) << "\t\tsizeof(*pt)" << sizeof(*pt) << endl;
     cout << "sizeof(pd): " << sizeof(pd) << "\t\tsizeof(*pd)" << sizeof(*pd) << endl;
     
+    delete pt;
+    delete pd;
+    
     return 0;
 }
