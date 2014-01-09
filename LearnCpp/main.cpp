@@ -11,39 +11,34 @@
 
 
 
+struct inflatable
+{
+    char name[20];
+    float volume;
+    double price;
+};
+
+
+
 int main()
 {
     using namespace std;
     
-    char animal[20] = "bear";
-    const char *bird = "wren";
-    char *ps;
+    inflatable *ps = new inflatable;
     
-    cout << animal << endl;
-    cout << bird << endl;
+    cout << "Enter inflatable name: ";
+    cin.get(ps->name, 20);
+    
+    cout << "Enter inflatable volume: ";
+    cin >> (*ps).volume;
+    
+    cout << "Enter inflatable price: ";
+    cin >> ps->price;
+    
     cout << endl;
-    
-    cout << "Enter an animal: ";
-    cin >> animal;
-    
-    ps = animal;
-    cout << ps << endl;
-    cout << endl;
-    
-    cout << "Before strcpy(): " << endl;
-    cout << animal << " at " << (int *)animal << endl;
-    cout << ps << " at " << (int *)ps << endl;
-    cout << endl;
-    
-    ps = new char[strlen(animal) + 1];
-    strcpy(ps, animal);
-    
-    cout << "After strcpy(): " << endl;
-    cout << animal << " at " << (int *)animal << endl;
-    cout << ps << " at " << (int *)ps << endl;
-    cout << endl;
-    
-    delete [] ps;
+    cout << "Name: " << (*ps).name << endl;
+    cout << "Volume: " << ps->volume << endl;
+    cout << "Price: " << ps->price << endl;
     
     return 0;
 }
