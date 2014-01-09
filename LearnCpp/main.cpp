@@ -11,12 +11,7 @@
 
 
 
-struct inflatable
-{
-    char name[20];
-    float volume;
-    double price;
-};
+char * getname(void);
 
 
 
@@ -24,23 +19,33 @@ int main()
 {
     using namespace std;
     
-    inflatable *ps = new inflatable;
+    char *name;
     
-    cout << "Enter inflatable name: ";
-    cin.get(ps->name, 20);
-    
-    cout << "Enter inflatable volume: ";
-    cin >> (*ps).volume;
-    
-    cout << "Enter inflatable price: ";
-    cin >> ps->price;
-    
+    name = getname();
+    cout << name << " at " << (int *)name << endl;
     cout << endl;
-    cout << "Name: " << (*ps).name << endl;
-    cout << "Volume: " << ps->volume << endl;
-    cout << "Price: " << ps->price << endl;
+    delete [] name;
     
-    delete ps;
+    name = getname();
+    cout << name << " at " << (int *)name << endl;
+    cout << endl;
+    delete [] name;
     
     return 0;
+}
+
+
+
+char * getname(void)
+{
+    using namespace std;
+    
+    char tempName[80];
+    cout << "Enter name: ";
+    cin.getline(tempName, 80);
+    
+    char *pn = new char[strlen(tempName) + 1];
+    strcpy(pn, tempName);
+    
+    return pn;
 }
