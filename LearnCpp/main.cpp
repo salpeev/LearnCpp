@@ -40,5 +40,7 @@ int main()
     cout << "Volume: " << ps->volume << endl;
     cout << "Price: " << ps->price << endl;
     
+    delete ps;
+    
     return 0;
 }
