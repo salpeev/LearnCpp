@@ -36,7 +36,7 @@ int main() {
     
     a1[-2] = 20.2;
     
-    cout << "a1[2]: " << a1[2] << "\t\tat " << &a1[2] << endl;
+    cout << "a1[-2]: " << a1[-2] << "\t\tat " << &a1[2] << endl;
     cout << "a3[2]: " << a3[2] << "\t\tat " << &a3[2] << endl;
     cout << "a4[2]: " << a4[2] << "\t\tat " << &a4[2] << endl;
     
