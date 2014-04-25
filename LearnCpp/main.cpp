@@ -7,45 +7,39 @@
 //
 
 #include <iostream>
-#include <cstring>
 
 
 
-char * getname(void);
-
-
-
-int main()
+struct antarctica_years_end
 {
-    using namespace std;
-    
-    char *name;
-    
-    name = getname();
-    cout << name << " at " << (int *)name << endl;
-    cout << endl;
-    delete [] name;
-    
-    name = getname();
-    cout << name << " at " << (int *)name << endl;
-    cout << endl;
-    delete [] name;
-    
-    return 0;
-}
+    int year;
+    // Some other data
+};
 
 
 
-char * getname(void)
+int main ()
 {
-    using namespace std;
+    antarctica_years_end s01;
+    antarctica_years_end s02;
+    antarctica_years_end s03;
     
-    char tempName[80];
-    cout << "Enter name: ";
-    cin.getline(tempName, 80);
+    s01.year = 1998;
     
-    char *pn = new char[strlen(tempName) + 1];
-    strcpy(pn, tempName);
+    antarctica_years_end *pa = &s02;
+    pa->year = 1999;
     
-    return pn;
+    antarctica_years_end trio[3];
+    trio[0].year = 2003;
+    
+    std::cout << trio->year << std::endl;
+    
+    const antarctica_years_end *arp[3] = {&s01, &s02, &s03};
+    std::cout << arp[1]->year << std::endl;
+    
+    const antarctica_years_end **ppa = arp;
+    auto ppb = arp;
+    
+    std::cout << (*ppa)->year << std::endl;
+    std::cout << (*(ppb + 1))->year << std::endl;
 }
