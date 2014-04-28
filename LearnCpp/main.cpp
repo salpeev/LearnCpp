@@ -10,22 +10,19 @@
 
 
 
-const int ArSize = 16;
-
-
-
 int main() {
-    using namespace std;
+    using std::cout;
+    using std::cin;
+    using std::endl;
     
-    long long factorials[ArSize];
-    factorials[1] = factorials[0] = 1LL;
+    cout << "Enter an integer: ";
+    int by;
+    cin >> by;
     
-    for (int i = 2; i < ArSize; i++) {
-        factorials[i] = i * factorials[i - 1];
-    }
+    cout << "Counting by " << by << "s:\n";
     
-    for (int i = 0; i < ArSize; i++) {
-        cout << i << "! = " << factorials[i] << endl;
+    for (int i = 0; i < 100; i = i + by) {
+        cout << i << endl;
     }
     
     return 0;
