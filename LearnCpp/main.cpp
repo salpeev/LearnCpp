@@ -7,21 +7,25 @@
 //
 
 #include <iostream>
-#include <string>
+
+
+
+const int ArSize = 20;
 
 
 
 int main() {
     using namespace std;
     
-    string word = "?ate";
+    char name[ArSize];
+    cout << "Your first name, please: ";
+    cin >> name;
     
-    for (char ch = 'a'; word != "mate"; ch++) {
-        cout << word << endl;
-        word[0] = ch;
+    int i = 0;
+    while (name[i] != '\0') {
+        cout << int(name[i]) << endl;
+        i++;
     }
-    
-    cout << "END: " << word << endl;
     
     return 0;
 }
