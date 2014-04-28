@@ -12,15 +12,15 @@
 
 
 int main() {
-    using namespace std;
+    using std::cout;
+    using std::endl;
     
-    cout << "Enter a word: ";
-    string word;
-    cin >> word;
+    int a = 20;
+    int b = 20;
     
-    for (int i = int(word.size() - 1); i >= 0; i--) {
-        cout << word[i] << endl;
-    }
+    cout << "a   = " << a << "\tb   = " << b << endl;
+    cout << "a++ = " << a++ << "\t++b = " << ++b << endl;
+    cout << "a   = " << a << "\tb   = " << b << endl;
     
     return 0;
 }
