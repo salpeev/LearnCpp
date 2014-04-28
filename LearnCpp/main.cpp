@@ -7,24 +7,23 @@
 //
 
 #include <iostream>
-#include <string>
 
 
 
 int main() {
     using namespace std;
     
-    cout << "Enter a word: ";
-    string word;
-    cin >> word;
+    int quizScores[] = { 20, 20, 20, 20, 20, 19, 20, 18, 20, 20};
     
-    for (int j = 0, i = (int)word.size() - 1; j < i; i--, j++) {
-        char temp = word[i];
-        word[i] = word[j];
-        word[j] = temp;
+    cout << "Doing it right:" << endl;
+    for (int i = 0; quizScores[i] == 20; i++) {
+        cout << "Quiz " << i << " is a 20." << endl;
     }
     
-    cout << "Reverse: " << word << endl;
+    cout << "Doing it dangerously wrong:" << endl;
+    for (int i = 0; quizScores[i] = 20; i++) {
+        cout << "Quiz " << i << " is a 20." << endl;
+    }
     
     return 0;
 }
