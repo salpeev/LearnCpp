@@ -7,22 +7,19 @@
 //
 
 #include <iostream>
+#include <string>
 
 
 
 int main() {
-    using std::cout;
-    using std::cin;
-    using std::endl;
+    using namespace std;
     
-    cout << "Enter an integer: ";
-    int by;
-    cin >> by;
+    cout << "Enter a word: ";
+    string word;
+    cin >> word;
     
-    cout << "Counting by " << by << "s:\n";
-    
-    for (int i = 0; i < 100; i = i + by) {
-        cout << i << endl;
+    for (int i = int(word.size() - 1); i >= 0; i--) {
+        cout << word[i] << endl;
     }
     
     return 0;
