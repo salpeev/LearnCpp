@@ -12,15 +12,22 @@
 
 
 int main() {
-    using std::cout;
-    using std::endl;
+    using namespace std;
     
-    int a = 20;
-    int b = 20;
+    cout << "The Amazing Accounto will sum and average five numbers for you." << endl;
+    cout << "Please enter five values:" << endl;
     
-    cout << "a   = " << a << "\tb   = " << b << endl;
-    cout << "a++ = " << a++ << "\t++b = " << ++b << endl;
-    cout << "a   = " << a << "\tb   = " << b << endl;
+    double number = 0.0;
+    double sum = 0.0;
+    
+    for (int i = 1; i <= 5; i++) {
+        cout << "Value " << i << ": ";
+        cin >> number;
+        sum += number;
+    }
+    
+    cout << "Sum: " << sum << endl;
+    cout << "Average: " << sum / 5 << endl;
     
     return 0;
 }
