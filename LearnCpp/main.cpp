@@ -14,20 +14,17 @@
 int main() {
     using namespace std;
     
-    cout << "The Amazing Accounto will sum and average five numbers for you." << endl;
-    cout << "Please enter five values:" << endl;
+    cout << "Enter a word: ";
+    string word;
+    cin >> word;
     
-    double number = 0.0;
-    double sum = 0.0;
-    
-    for (int i = 1; i <= 5; i++) {
-        cout << "Value " << i << ": ";
-        cin >> number;
-        sum += number;
+    for (int j = 0, i = (int)word.size() - 1; j < i; i--, j++) {
+        char temp = word[i];
+        word[i] = word[j];
+        word[j] = temp;
     }
     
-    cout << "Sum: " << sum << endl;
-    cout << "Average: " << sum / 5 << endl;
+    cout << "Reverse: " << word << endl;
     
     return 0;
 }
