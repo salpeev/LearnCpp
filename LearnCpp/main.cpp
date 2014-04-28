@@ -13,10 +13,16 @@
 int main() {
     using namespace std;
     
-    for (int i = 0; i < 5; i++) {
-        cout << "C++ knows loops.\n";
+    cout << "Enter the starting countdown value: ";
+    
+    int limit;
+    cin >> limit;
+    
+    int i;
+    for (i = limit; i; i--) {
+        cout << "i: " << i << endl;
     }
-    cout << "C++ knows when to stop.\n";
+    cout << "Now i: " << i << endl;
     
     return 0;
 }
