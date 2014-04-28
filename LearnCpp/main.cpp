@@ -7,25 +7,25 @@
 //
 
 #include <iostream>
-
-
-
-const int ArSize = 20;
+#include <ctime>
 
 
 
 int main() {
     using namespace std;
     
-    char name[ArSize];
-    cout << "Your first name, please: ";
-    cin >> name;
+    cout << "Enter the delay time, in seconds: ";
+    float secs;
+    cin >> secs;
     
-    int i = 0;
-    while (name[i] != '\0') {
-        cout << int(name[i]) << endl;
-        i++;
+    clock_t delay = secs * CLOCKS_PER_SEC;
+    
+    cout << "START" << endl;
+    clock_t start = clock();
+    while (clock() - start < delay) {
+        // Wait
     }
+    cout << "END" << endl;
     
     return 0;
 }
