@@ -7,23 +7,21 @@
 //
 
 #include <iostream>
+#include <cstring>
 
 
 
 int main() {
     using namespace std;
     
-    int quizScores[] = { 20, 20, 20, 20, 20, 19, 20, 18, 20, 20};
+    char word[5] = "?ate";
     
-    cout << "Doing it right:" << endl;
-    for (int i = 0; quizScores[i] == 20; i++) {
-        cout << "Quiz " << i << " is a 20." << endl;
+    for (char ch = 'a'; strcmp(word, "mate"); ch++) {
+        cout << word << endl;
+        word[0] = ch;
     }
     
-    cout << "Doing it dangerously wrong:" << endl;
-    for (int i = 0; quizScores[i] = 20; i++) {
-        cout << "Quiz " << i << " is a 20." << endl;
-    }
+    cout << "END: " << word << endl;
     
     return 0;
 }
