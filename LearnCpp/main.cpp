@@ -10,18 +10,38 @@
 
 
 
+const int Cities = 5;
+const int Years = 4;
+
+
+
 int main() {
     using namespace std;
     
-    int ch;
-    int count = 0;
+    const char * cities[Cities] = {
+        "Gribble City",
+        "Gribbletown",
+        "New Gribble",
+        "San Gribble",
+        "Gribble Vista"
+    };
     
-    while ((ch = cin.get()) != EOF) {
-        cout.put(ch);
-        count++;
+    int maxtemps[Years][Cities] = {
+        {96, 100, 87, 101, 105},
+        {96, 98, 91, 107, 104},
+        {97, 101, 93, 108, 107},
+        {98, 103, 95, 109, 108}
+    };
+    
+    for (int city = 0; city < Cities; city++) {
+        cout << cities[city] << ":\t";
+        
+        for (int year = 0; year < Years; year++) {
+            cout << maxtemps[year][city] << "\t";
+        }
+        
+        cout << endl;
     }
-    
-    cout << endl << count << " characters read.\n";
     
     return 0;
 }
