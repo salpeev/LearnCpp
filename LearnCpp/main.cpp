@@ -13,21 +13,19 @@
 int main() {
     using namespace std;
     
-    double prices[] = {4.99, 10.99, 6.87, 7.99, 8.49};
+    char ch;
+    int count = 0;
     
-    for (double x : prices) {
-        cout << x << endl;
+    cout << "Enter characters. Enter # to quit:\n";
+    cin >> ch;
+    
+    while (ch != '#') {
+        cout << ch;
+        count++;
+        cin >> ch;
     }
     
-    for (double &x : prices) {
-        x += 1.0;
-    }
-    
-    cout << "**********" << endl;
-    
-    for (double x : prices) {
-        cout << x << endl;
-    }
+    cout << endl << count << " characters read.\n";
     
     return 0;
 }
