@@ -7,25 +7,20 @@
 //
 
 #include <iostream>
-#include <ctime>
 
 
 
 int main() {
     using namespace std;
     
-    cout << "Enter the delay time, in seconds: ";
-    float secs;
-    cin >> secs;
+    cout << "Enter numbers in the range 1-10 to find my favorite number." << endl;
     
-    clock_t delay = secs * CLOCKS_PER_SEC;
+    int n;
+    do {
+        cin >> n;
+    } while (n != 7);
     
-    cout << "START" << endl;
-    clock_t start = clock();
-    while (clock() - start < delay) {
-        // Wait
-    }
-    cout << "END" << endl;
+    cout << "Yes, 7 is my favorite number." << endl;
     
     return 0;
 }
