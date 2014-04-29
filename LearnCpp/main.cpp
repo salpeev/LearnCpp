@@ -13,14 +13,21 @@
 int main() {
     using namespace std;
     
-    cout << "Enter numbers in the range 1-10 to find my favorite number." << endl;
+    double prices[] = {4.99, 10.99, 6.87, 7.99, 8.49};
     
-    int n;
-    do {
-        cin >> n;
-    } while (n != 7);
+    for (double x : prices) {
+        cout << x << endl;
+    }
     
-    cout << "Yes, 7 is my favorite number." << endl;
+    for (double &x : prices) {
+        x += 1.0;
+    }
+    
+    cout << "**********" << endl;
+    
+    for (double x : prices) {
+        cout << x << endl;
+    }
     
     return 0;
 }
