@@ -17,12 +17,12 @@ int main() {
     int count = 0;
     
     cout << "Enter characters. Enter # to quit:\n";
-    cin >> ch;
+    cin.get(ch);
     
     while (ch != '#') {
         cout << ch;
         count++;
-        cin >> ch;
+        cin.get(ch);
     }
     
     cout << endl << count << " characters read.\n";
