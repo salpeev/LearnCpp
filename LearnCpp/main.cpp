@@ -11,25 +11,21 @@
 
 
 int main() {
-    using std::cin;
-    using std::cout;
-    using std::endl;
-    
     char ch;
-    int spaces = 0;
-    int total = 0;
     
-    cin.get(ch);
+    std::cout << "Type, and I shall repeat.\n";
+    std::cin.get(ch);
+    
     while (ch != '.') {
-        if (ch == ' ') {
-            spaces++;
+        if (ch == '\n') {
+            std::cout << ch;
+        } else {
+            std::cout << ++ch;
         }
-        total++;
-        cin.get(ch);
+        std::cin.get(ch);
     }
     
-    cout << "Spaces: " << spaces << endl;
-    cout << "Total: " << total << endl;
+    std::cout << "\nPlease excuse the slight confusion.\n";
     
     return 0;
 }
