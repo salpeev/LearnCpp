@@ -16,10 +16,8 @@ int main() {
     char ch;
     int count = 0;
     
-    cout << "Enter characters. Enter # to quit:\n";
     cin.get(ch);
-    
-    while (ch != '#') {
+    while (!cin.fail()) {
         cout << ch;
         count++;
         cin.get(ch);
