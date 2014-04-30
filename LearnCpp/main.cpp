@@ -10,49 +10,36 @@
 
 
 
-const int ArSize = 6;
+const char *qualify[4] = {
+    "10,000-meter race.\n",
+    "mud tug-of-war.\n",
+    "master canoe jousting.\n",
+    "pie-throwing festival.\n"
+};
 
 
 
 int main() {
     using namespace std;
     
-    float naaq[ArSize];
-    cout << "Enter the NAAQs (New Age Awareness Quotients) ";
-    cout << "of\nyour neighbors. Program terminates ";
-    cout << "when you make\n" << ArSize << " entries ";
-    cout << "or enter a negative value.\n";
+    cout << "Enter your age in years: ";
     
-    int i = 0;
-    float temp;
+    int age;
+    cin >> age;
     
-    cout << "First value: ";
-    cin >> temp;
+    int index;
     
-    while (i < ArSize && temp >= 0) {
-        naaq[i] = temp;
-        i++;
-        if (i < ArSize) {
-            cout << "Next value: ";
-            cin >> temp;
-        }
-    }
-    
-    if (i == 0) {
-        cout << "No data, bye.\n";
+    if (age > 17 && age < 35) {
+        index = 0;
+    } else if (age >= 35 && age < 50) {
+        index = 1;
+    } else if (age >= 50 && age <65) {
+        index = 2;
     } else {
-        cout << "Enter your NAAQ: ";
-        float you;
-        cin >> you;
-        int count = 0;
-        for (int j = 0; j < i; j++) {
-            if (naaq[j] > you) {
-                count++;
-            }
-        }
-        cout << count << " of your neighbors have greater awareness of\n";
-        cout << "the New Age than do.\n";
+        index = 3;
     }
+    
+    cout << "You qualify for the " << qualify[index] << endl;
     
     return 0;
 }
