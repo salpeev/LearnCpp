@@ -10,22 +10,26 @@
 
 
 
+const int Fave = 27;
+
+
+
 int main() {
-    char ch;
+    using namespace std;
     
-    std::cout << "Type, and I shall repeat.\n";
-    std::cin.get(ch);
+    cout << "Enter a number in the range 1-100 to find my favorite number: ";
     
-    while (ch != '.') {
-        if (ch == '\n') {
-            std::cout << ch;
+    int n;
+    do {
+        cin >> n;
+        if (n < Fave) {
+            cout << "Too low." << endl;
+        } else if (n > Fave) {
+            cout << "Too high." << endl;
         } else {
-            std::cout << ++ch;
+            cout << Fave << " is right!" << endl;
         }
-        std::cin.get(ch);
-    }
-    
-    std::cout << "\nPlease excuse the slight confusion.\n";
+    } while (n != Fave);
     
     return 0;
 }
