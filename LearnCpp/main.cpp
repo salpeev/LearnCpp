@@ -7,39 +7,38 @@
 //
 
 #include <iostream>
+#include <climits>
 
 
 
-const char *qualify[4] = {
-    "10,000-meter race.\n",
-    "mud tug-of-war.\n",
-    "master canoe jousting.\n",
-    "pie-throwing festival.\n"
-};
+bool is_int(double num);
 
 
 
 int main() {
     using namespace std;
     
-    cout << "Enter your age in years: ";
+    cout << "Enter an integer value: ";
+    double num;
+    cin >> num;
     
-    int age;
-    cin >> age;
-    
-    int index;
-    
-    if (age > 17 && age < 35) {
-        index = 0;
-    } else if (age >= 35 && age < 50) {
-        index = 1;
-    } else if (age >= 50 && age <65) {
-        index = 2;
-    } else {
-        index = 3;
+    while (!is_int(num)) {
+        cout << "Out of range. Please try again: ";
+        cin >> num;
     }
     
-    cout << "You qualify for the " << qualify[index] << endl;
+    int val = int(num);
+    cout << "You have entered the integer: " << val << endl;
     
     return 0;
+}
+
+
+
+bool is_int(double num) {
+    if (INT_MIN <= num && num <= INT_MAX) {
+        return true;
+    } else {
+        return false;
+    }
 }
