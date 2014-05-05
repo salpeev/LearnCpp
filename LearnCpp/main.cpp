@@ -8,39 +8,38 @@
 
 #include <iostream>
 
-using namespace std;
 
 
-
-const int ArSize = 80;
+const int Max = 5;
 
 
 
 int main() {
     using namespace std;
     
-    char line[ArSize];
-    int spaces = 0;
+    double fish[Max];
     
-    cout << "Enter a line of text: ";
-    cin.get(line, ArSize);
+    cout << "Please enter the weights of your fish.\n";
+    cout << "You may enter up to " << Max << " fish <q to terminate>.\n";
     
-    cout << "Complete line: " << line << endl;
-    
-    cout << "Line through first period: ";
-    
-    for (int i = 0; line[i] != '\0'; i++) {
-        cout << line[i];
-        if (line[i] == '.') {
-            break;
+    cout << "fish #1: ";
+    int i = 0;
+    while (i < Max && (cin >> fish[i])) {
+        if (++i < Max) {
+            cout << "fish #" << i + 1 << ": ";
         }
-        if (line[i] != ' ') {
-            continue;
-        }
-        spaces++;
     }
     
-    cout << "\n" << spaces << " spaces.\n";
+    double total = 0.0;
+    for (int j = 0; j < i; j++) {
+        total += fish[j];
+    }
+    
+    if (i == 0) {
+        cout << "No fish.\n";
+    } else {
+        cout << total / i << " average weight of " << i << " fish.\n";
+    }
     
     return 0;
 }
