@@ -8,44 +8,51 @@
 
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
 
 
 
 int main() {
     using namespace std;
     
-    char automobile[50];
-    int year;
-    double a_price;
-    double d_price;
+    ifstream fin;
+    fin.open("/Users/salpeev/Documents/Projects/LearnCpp/LearnCpp/numbers.txt");
     
-    ofstream fout;
-    fout.open("/Users/salpeev/Documents/Projects/LearnCpp/LearnCpp/carinfo.txt");
+    if (!fin.is_open()) {
+        cout << "Couldn't open the file. Terminating...\n";
+        exit(EXIT_FAILURE);
+    }
     
-    cout << "Enter the make and model of automobile: ";
-    cin.getline(automobile, 50);
-    cout << "Enter the model year: ";
-    cin >> year;
-    cout << "Enter the original asking price: ";
-    cin >> a_price;
-    d_price = 0.913 * a_price;
+    double value;
+    double sum = 0.0;
+    int count = 0;
     
-    cout << fixed;
-    cout.precision(2);
-    cout.setf(ios_base::showpoint);
-    cout << "Make and model: " << automobile << endl;
-    cout << "Year: " << year << endl;
-    cout << "Was asking: " << a_price << endl;
-    cout << "Now asking: " << d_price << endl;
+    fin >> value;
+    while (fin.good()) {
+        cout << value << endl;
+        
+        count++;
+        sum += value;
+        fin >> value;
+    }
     
-    fout << fixed;
-    fout.precision(2);
-    fout.setf(ios_base::showpoint);
-    fout << "Make and model: " << automobile << endl;
-    fout << "Year: " << year << endl;
-    fout << "Was asking: " << a_price << endl;
-    fout << "Now asking: " << d_price << endl;
-    fout.close();
+    if (fin.eof()) {
+        cout << "End of file reached.\n";
+    } else if (fin.fail()) {
+        cout << "Input terminated by data mismatch.\n";
+    } else {
+        cout << "Input terminated by unknown reason.\n";
+    }
+    
+    if (count == 0) {
+        cout << "No data processed.\n";
+    } else {
+        cout << "Items read: " << count << endl;
+        cout << "Sum: " << sum << endl;
+        cout << "Average: " << sum / count << endl;
+    }
+    
+    fin.close();
     
     return 0;
 }
