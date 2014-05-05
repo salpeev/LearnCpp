@@ -12,54 +12,41 @@ using namespace std;
 
 
 
-void showmenu();
-void report();
-void comfort();
+enum {
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    violet,
+    indigo
+};
 
 
 
 int main() {
     using namespace std;
     
-    showmenu();
+    cout << "Enter color code (0 - 6): ";
+    int code;
+    cin >> code;
     
-    int choice;
-    cin >> choice;
-    
-    while (choice != 5) {
-        switch (choice) {
-            case 1: cout << "\a\n"; break;
-            case 2: report(); break;
-            case 3: cout << "The boss was in all day.\n"; break;
-            case 4: comfort(); break;
-            default: cout << "That's not a choice.\n";
+    while (code >= red && code <= indigo) {
+        switch (code) {
+            case red: cout << "red" << endl; break;
+            case orange: cout << "orange" << endl; break;
+            case yellow: cout << "yellow" << endl; break;
+            case green: cout << "green" << endl; break;
+            case blue: cout << "blue" << endl; break;
+            case violet: cout << "violet" << endl; break;
+            case indigo: cout << "indigo" << endl; break;
         }
         
-        showmenu();
-        cin >> choice;
+        cout << "Enter color code (0 - 6): ";
+        cin >> code;
     }
     
     cout << "Bye!\n";
     
     return 0;
-}
-
-
-
-void showmenu() {
-    cout << "Enter 1, 2, 3, 4 or 5:\n";
-    cout << "1) alarm       2) report\n";
-    cout << "3) alibi       4) comfort\n";
-    cout << "5) quit\n";
-}
-
-void report() {
-    cout << "It's been an excellent week for business.\n";
-    cout << "Sales are up 120%. Expenses are down 35%.\n";
-}
-
-void comfort() {
-    cout << "Your employees think you are the finest CEO\n";
-    cout << "in the industry. The board of directors think\n";
-    cout << "you are the finest CEO in the industry.\n";
 }
