@@ -7,38 +7,39 @@
 //
 
 #include <iostream>
-#include <climits>
-
-
-
-bool is_int(double num);
+#include <cctype>
 
 
 
 int main() {
     using namespace std;
     
-    cout << "Enter an integer value: ";
-    double num;
-    cin >> num;
+    cout << "Enter text for analysis and type @ to terminate input.\n";
     
-    while (!is_int(num)) {
-        cout << "Out of range. Please try again: ";
-        cin >> num;
+    char ch;
+    int whitespace = 0;
+    int digits = 0;
+    int chars = 0;
+    int punct = 0;
+    int others = 0;
+    
+    cin.get(ch);
+    while (ch != '@') {
+        if (isalpha(ch)) {
+            chars++;
+        } else if (isspace(ch)) {
+            whitespace++;
+        } else if (isdigit(ch)) {
+            digits++;
+        } else if (ispunct(ch)) {
+            punct++;
+        } else {
+            others++;
+        }
+        cin.get(ch);
     }
     
-    int val = int(num);
-    cout << "You have entered the integer: " << val << endl;
+    cout << chars << " letters, " << whitespace << " whitespace, " << digits << " digits, " << punct << " punctuations, " << others << " others.\n";
     
     return 0;
-}
-
-
-
-bool is_int(double num) {
-    if (INT_MIN <= num && num <= INT_MAX) {
-        return true;
-    } else {
-        return false;
-    }
 }
