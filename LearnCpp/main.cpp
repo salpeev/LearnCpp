@@ -27,13 +27,9 @@ int main() {
     double sum = 0.0;
     int count = 0;
     
-    fin >> value;
-    while (fin.good()) {
-        cout << value << endl;
-        
+    while (fin >> value) {
         count++;
         sum += value;
-        fin >> value;
     }
     
     if (fin.eof()) {
