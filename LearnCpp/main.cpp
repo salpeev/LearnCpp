@@ -7,38 +7,45 @@
 //
 
 #include <iostream>
-
-
-
-const int Max = 5;
+#include <fstream>
 
 
 
 int main() {
     using namespace std;
     
-    double golf[Max];
+    char automobile[50];
+    int year;
+    double a_price;
+    double d_price;
     
-    cout << "Please enter your golf scores.\n";
-    cout << "You must enter " << Max << " rounds.\n";
+    ofstream fout;
+    fout.open("/Users/salpeev/Documents/Projects/LearnCpp/LearnCpp/carinfo.txt");
     
-    int i;
-    for (i = 0; i < Max; i++) {
-        cout << "round #" << i + 1 << ": ";
-        while (!(cin >> golf[i])) {
-            cin.clear();
-            while (cin.get() != '\n') {
-                continue;
-            }
-            cout << "Please enter a number: ";
-        }
-    }
+    cout << "Enter the make and model of automobile: ";
+    cin.getline(automobile, 50);
+    cout << "Enter the model year: ";
+    cin >> year;
+    cout << "Enter the original asking price: ";
+    cin >> a_price;
+    d_price = 0.913 * a_price;
     
-    double total = 0.0;
-    for (int i = 0; i < Max; i++) {
-        total += golf[i];
-    }
-    cout << total / Max << " = average score " << Max << " rounds.\n";
+    cout << fixed;
+    cout.precision(2);
+    cout.setf(ios_base::showpoint);
+    cout << "Make and model: " << automobile << endl;
+    cout << "Year: " << year << endl;
+    cout << "Was asking: " << a_price << endl;
+    cout << "Now asking: " << d_price << endl;
+    
+    fout << fixed;
+    fout.precision(2);
+    fout.setf(ios_base::showpoint);
+    fout << "Make and model: " << automobile << endl;
+    fout << "Year: " << year << endl;
+    fout << "Was asking: " << a_price << endl;
+    fout << "Now asking: " << d_price << endl;
+    fout.close();
     
     return 0;
 }
