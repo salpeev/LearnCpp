@@ -17,29 +17,28 @@ const int Max = 5;
 int main() {
     using namespace std;
     
-    double fish[Max];
+    double golf[Max];
     
-    cout << "Please enter the weights of your fish.\n";
-    cout << "You may enter up to " << Max << " fish <q to terminate>.\n";
+    cout << "Please enter your golf scores.\n";
+    cout << "You must enter " << Max << " rounds.\n";
     
-    cout << "fish #1: ";
-    int i = 0;
-    while (i < Max && (cin >> fish[i])) {
-        if (++i < Max) {
-            cout << "fish #" << i + 1 << ": ";
+    int i;
+    for (i = 0; i < Max; i++) {
+        cout << "round #" << i + 1 << ": ";
+        while (!(cin >> golf[i])) {
+            cin.clear();
+            while (cin.get() != '\n') {
+                continue;
+            }
+            cout << "Please enter a number: ";
         }
     }
     
     double total = 0.0;
-    for (int j = 0; j < i; j++) {
-        total += fish[j];
+    for (int i = 0; i < Max; i++) {
+        total += golf[i];
     }
-    
-    if (i == 0) {
-        cout << "No fish.\n";
-    } else {
-        cout << total / i << " average weight of " << i << " fish.\n";
-    }
+    cout << total / Max << " = average score " << Max << " rounds.\n";
     
     return 0;
 }
