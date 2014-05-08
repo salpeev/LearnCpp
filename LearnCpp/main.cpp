@@ -12,35 +12,33 @@ using namespace std;
 
 
 
-void n_chars(char, int);
+long double probability(unsigned int numbers, unsigned int picks);
 
 
 
 int main() {
-    int times;
-    char ch;
+    double total, choices;
     
-    cout << "Enter a character: ";
-    cin >> ch;
+    cout << "Enter the total number of choices on the game card and the number of picks allowed: ";
     
-    while (ch != 'q') {
-        cout << "Enter an integer: ";
-        cin >> times;
-        n_chars(ch, times);
-        
-        cout << "\nEnter another character or press the q-key to quit: ";
-        cin >> ch;
+    while ((cin >> total >> choices) && choices <= total) {
+        cout << "You have one chance in " << probability(total, choices) << " of winning.\n";
+        cout << "Next two numbers (q to quit): ";
     }
-    
-    cout << "The value of times is " << times << endl;
     
     return 0;
 }
 
 
 
-void n_chars(char c, int n) {
-    while (n-- > 0) {
-        cout << c;
+long double probability(unsigned int numbers, unsigned int picks) {
+    long double result = 1.0;
+    long double n;
+    unsigned int p;
+    
+    for (n = numbers, p = picks; p > 0; n--, p--) {
+        result = result * n / p;
     }
+    
+    return result;
 }
