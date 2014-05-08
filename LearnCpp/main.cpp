@@ -12,75 +12,40 @@ using namespace std;
 
 
 
-const int Max = 5;
+const int ArSize = 8;
 
 
 
-int fill_array(double arr[], int limit);
-void show_array(const double arr[], int n);
-void revalue(double r, double arr[], int n);
+int sum_arr(const int *begin, const int *end);
 
 
 
 int main() {
-    double properties[Max];
+    int cookies[ArSize] = {1, 2, 4, 8, 16, 32, 64, 128};
     
-    int size = fill_array(properties, Max);
-    show_array(properties, size);
+    cout << cookies << " = array address, ";
+    cout << sizeof(cookies) << " = sizeof cookies\n";
     
-    if (size > 0) {
-        cout << "Enter reevaluation factor: ";
-        double factor;
-        
-        while (!(cin >> factor)) {
-            cin.clear();
-            while (cin.get() != '\n') {
-                continue;
-            }
-            cout << "Bad input; Please enter a number: ";
-        }
-        
-        revalue(factor, properties, size);
-        show_array(properties, size);
-    }
+    int sum = sum_arr(cookies, cookies + ArSize);
+    cout << "Total cookies eaten: " << sum << endl;
+    
+    sum = sum_arr(cookies, cookies + 3);
+    cout << "First three eaters ate " << sum << " cookies.\n";
+    
+    sum = sum_arr(cookies + 4, cookies + 8);
+    cout << "Last four eaters ate " << sum << " cookies.\n";
     
     return 0;
 }
 
 
 
-int fill_array(double arr[], int limit) {
-    double temp;
-    int i;
+int sum_arr(const int *begin, const int *end) {
+    int total = 0;
     
-    for (i = 0; i < limit; i++) {
-        cout << "Enter value #" << (i + 1) << ": ";
-        cin >> temp;
-        if (!cin) {
-            cin.clear();
-            while (cin.get() != '\n') {
-                continue;
-            }
-            cout << "Bad input. Process terminated.\n";
-            break;
-        } else if (temp < 0) {
-            break;
-        }
-        
-        arr[i] = temp;
+    for (const int *pt = begin; pt != end; pt++) {
+        total += *pt;
     }
     
-    return i;
-}
-
-void show_array(const double arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << "Property #" << (i + 1) << ": $" << arr[i] << endl;
-    }
-}
-
-void revalue(double r, double arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        arr[i] *= r;
-    }
+    return total;
 }
