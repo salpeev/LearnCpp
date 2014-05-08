@@ -12,35 +12,35 @@ using namespace std;
 
 
 
-void cheers(int);
-double cube(double x);
+void n_chars(char, int);
 
 
 
 int main() {
-    cheers(5);
+    int times;
+    char ch;
     
-    cout << "Give me a number: ";
-    double side;
-    cin >> side;
+    cout << "Enter a character: ";
+    cin >> ch;
     
-    double volume = cube(side);
-    cout << "A " << side << "-foot cube has a volume of " << volume << " cubic feet.\n";
+    while (ch != 'q') {
+        cout << "Enter an integer: ";
+        cin >> times;
+        n_chars(ch, times);
+        
+        cout << "\nEnter another character or press the q-key to quit: ";
+        cin >> ch;
+    }
     
-    cheers(cube(2));
+    cout << "The value of times is " << times << endl;
     
     return 0;
 }
 
 
 
-void cheers(int n) {
-    for (int i = 0; i < n; i++) {
-        cout << "Cheers! ";
+void n_chars(char c, int n) {
+    while (n-- > 0) {
+        cout << c;
     }
-    cout << endl;
-}
-
-double cube(double x) {
-    return x * x * x;
 }
