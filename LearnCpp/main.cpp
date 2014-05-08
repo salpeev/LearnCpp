@@ -12,33 +12,30 @@ using namespace std;
 
 
 
-long double probability(unsigned int numbers, unsigned int picks);
+const int ArSize = 8;
+
+
+
+int sum_arr(int arr[], int n);
 
 
 
 int main() {
-    double total, choices;
-    
-    cout << "Enter the total number of choices on the game card and the number of picks allowed: ";
-    
-    while ((cin >> total >> choices) && choices <= total) {
-        cout << "You have one chance in " << probability(total, choices) << " of winning.\n";
-        cout << "Next two numbers (q to quit): ";
-    }
+    int cookies[ArSize] = {1, 2, 4, 8, 16, 32, 64, 128};
+    int sum = sum_arr(cookies, ArSize + 5);
+    cout << "Total cookies eaten: " << sum << endl;
     
     return 0;
 }
 
 
 
-long double probability(unsigned int numbers, unsigned int picks) {
-    long double result = 1.0;
-    long double n;
-    unsigned int p;
+int sum_arr(int arr[], int n) {
+    int total = 0;
     
-    for (n = numbers, p = picks; p > 0; n--, p--) {
-        result = result * n / p;
+    for (int i = 0; i < n; i++) {
+        total += arr[i];
     }
     
-    return result;
+    return total;
 }
