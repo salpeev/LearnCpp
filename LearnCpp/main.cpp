@@ -12,8 +12,9 @@ using namespace std;
 
 
 
-const int Len = 66;
-const int Divs = 6;
+double betsy(int lns);
+double pam(int lns);
+void estimate(int lines, double (*pf)(int));
 
 
 
@@ -22,42 +23,32 @@ void subdivide(char ar[], int low, int high, int level);
 
 
 int main() {
-    char ruler[Len];
+    int code;
     
-    for (int i = 1; i < (Len - 2); i++) {
-        ruler[i] = ' ';
-    }
+    cout << "How many lines of code do you need? ";
+    cin >> code;
     
-    ruler[Len - 1] = '\0';
+    cout << "Betsy:\n";
+    estimate(code, betsy);
     
-    int max = Len - 2;
-    int min = 0;
-    ruler[min] = ruler[max] = '|';
-    
-    cout << ruler << endl;
-    
-    for (int i = 1; i <= Divs; i++) {
-        subdivide(ruler, min, max, i);
-        cout << ruler << endl;
-        
-        for (int j = 1; j < (Len - 2); j++) {
-            ruler[j] = ' ';
-        }
-    }
+    cout << endl;
+    cout << "Pam:\n";
+    estimate(code, pam);
     
     return 0;
 }
 
 
 
-void subdivide(char ar[], int low, int high, int level) {
-    if (level == 0) {
-        return;
-    }
-    
-    int mid = (high + low) / 2;
-    ar[mid] = '|';
-    
-    subdivide(ar, low, mid, level - 1);
-    subdivide(ar, mid, high, level - 1);
+double betsy(int lns) {
+    return 0.05 * lns;
+}
+
+double pam(int lns) {
+    return 0.03 * lns + 0.0004 * lns * lns;
+}
+
+void estimate(int lines, double (*pf)(int)) {
+    cout << lines << " will take " << pf(lines) << " hours.\n";
+//    cout << lines << " will take " << (*pf)(lines) << " hours.\n";
 }
