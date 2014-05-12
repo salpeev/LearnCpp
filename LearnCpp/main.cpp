@@ -12,17 +12,32 @@ using namespace std;
 
 
 
+int sum(int arr[][4], int size);
+
+
+
 int main() {
-    int a = 5;
-    int b = 10;
+    int arr1[3][4] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
     
-    int *pA = &a;
-    int *pB = &b;
-    
-    int **ppA = &pA;
-    *ppA = pB;
-    
-    cout << *pA << endl;
+    cout << sum(arr1, 3) << endl;
     
     return 0;
+}
+
+
+
+int sum(int arr[][4], int size) {
+    int sum = 0;
+    
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < 4; j++) {
+            sum += arr[i][j];
+        }
+    }
+    
+    return sum;
 }
