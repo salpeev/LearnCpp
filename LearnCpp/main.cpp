@@ -12,19 +12,35 @@ using namespace std;
 
 
 
+unsigned int c_in_str(const char *str, char ch);
+
+
+
 int main() {
-    int arr[3][4] = {
-        {1, 2, 3, 4},
-        {5, 6, 7, 8},
-        {9, 10, 11, 12}
-    };
+    char mmm[15] = "minimum";
+    char *wail = "ululate";
     
-    cout << arr[1] << endl;
-    cout << arr + 1 << endl;
-    cout << *(arr + 1) << endl;
+    unsigned int ms = c_in_str(mmm, 'm');
+    unsigned int us = c_in_str(wail, 'u');
     
-    cout << arr[1][2] << endl;
-    cout << *(*(arr + 1) + 2) << endl;
+    cout << ms << " m characters in " << mmm << endl;
+    cout << us << " u characters in " << wail << endl;
     
     return 0;
+}
+
+
+
+unsigned int c_in_str(const char *str, char ch) {
+    unsigned int count = 0;
+    
+    while (*str) {
+        if (*str == ch) {
+            count++;
+        }
+        
+        str++;
+    }
+    
+    return count;
 }
