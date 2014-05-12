@@ -31,6 +31,8 @@ int main() {
 
 
 int sum(int arr[][4], int size) {
+    cout << "Row elements count: " << sizeof(arr[0]) / sizeof(arr[0][0]) << endl;
+    
     int sum = 0;
     
     for (int i = 0; i < size; i++) {
