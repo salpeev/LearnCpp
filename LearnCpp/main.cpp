@@ -12,34 +12,19 @@ using namespace std;
 
 
 
-int sum(int arr[][4], int size);
-
-
-
 int main() {
-    int arr1[3][4] = {
+    int arr[3][4] = {
         {1, 2, 3, 4},
         {5, 6, 7, 8},
         {9, 10, 11, 12}
     };
     
-    cout << sum(arr1, 3) << endl;
+    cout << arr[1] << endl;
+    cout << arr + 1 << endl;
+    cout << *(arr + 1) << endl;
+    
+    cout << arr[1][2] << endl;
+    cout << *(*(arr + 1) + 2) << endl;
     
     return 0;
-}
-
-
-
-int sum(int arr[][4], int size) {
-    cout << "Row elements count: " << sizeof(arr[0]) / sizeof(arr[0][0]) << endl;
-    
-    int sum = 0;
-    
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < 4; j++) {
-            sum += arr[i][j];
-        }
-    }
-    
-    return sum;
 }
