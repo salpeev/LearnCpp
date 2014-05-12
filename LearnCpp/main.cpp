@@ -12,35 +12,37 @@ using namespace std;
 
 
 
-unsigned int c_in_str(const char *str, char ch);
+char * buildstr(char c, int n);
 
 
 
 int main() {
-    char mmm[15] = "minimum";
-    char *wail = "ululate";
+    int times;
+    char ch;
     
-    unsigned int ms = c_in_str(mmm, 'm');
-    unsigned int us = c_in_str(wail, 'u');
+    cout << "Enter a character: ";
+    cin >> ch;
+    cout << "Enter an integer: ";
+    cin >> times;
     
-    cout << ms << " m characters in " << mmm << endl;
-    cout << us << " u characters in " << wail << endl;
+    char *ps = buildstr(ch, times);
+    cout << ps << endl;
+    delete [] ps;
+    
+    ps = buildstr('+', 20);
+    cout << ps << "-DONE-" << ps << endl;
+    delete [] ps;
     
     return 0;
 }
 
 
 
-unsigned int c_in_str(const char *str, char ch) {
-    unsigned int count = 0;
-    
-    while (*str) {
-        if (*str == ch) {
-            count++;
-        }
-        
-        str++;
+char * buildstr(char c, int n) {
+    char *pstr = new char[n + 1];
+    pstr[n] = '\0';
+    while (n--) {
+        pstr[n] = c;
     }
-    
-    return count;
+    return pstr;
 }
