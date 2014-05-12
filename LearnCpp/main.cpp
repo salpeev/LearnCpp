@@ -12,37 +12,44 @@ using namespace std;
 
 
 
-char * buildstr(char c, int n);
+struct travel_time {
+    int hours;
+    int minutes;
+};
+
+const int MinsPerHour = 60;
+
+
+
+travel_time sum (travel_time t1, travel_time t2);
+void show_time(travel_time t);
 
 
 
 int main() {
-    int times;
-    char ch;
+    travel_time day1 = {5, 45};
+    travel_time day2 = {4, 55};
     
-    cout << "Enter a character: ";
-    cin >> ch;
-    cout << "Enter an integer: ";
-    cin >> times;
+    travel_time trip = sum(day1, day2);
+    cout << "Two day total: ";
+    show_time(trip);
     
-    char *ps = buildstr(ch, times);
-    cout << ps << endl;
-    delete [] ps;
-    
-    ps = buildstr('+', 20);
-    cout << ps << "-DONE-" << ps << endl;
-    delete [] ps;
+    travel_time day3 = {4, 32};
+    cout << "Three day total: ";
+    show_time(sum(trip, day3));
     
     return 0;
 }
 
 
 
-char * buildstr(char c, int n) {
-    char *pstr = new char[n + 1];
-    pstr[n] = '\0';
-    while (n--) {
-        pstr[n] = c;
-    }
-    return pstr;
+travel_time sum (travel_time t1, travel_time t2) {
+    travel_time total;
+    total.minutes = (t1.minutes + t2.minutes) % MinsPerHour;
+    total.hours = t1.hours + t2.hours + (t1.minutes + t2.minutes) / MinsPerHour;
+    return total;
+}
+
+void show_time(travel_time t) {
+    cout << t.hours << " hours " << t.minutes << " minutes." << endl;
 }
