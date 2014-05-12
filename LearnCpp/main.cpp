@@ -7,49 +7,54 @@
 //
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
 
 
-struct travel_time {
-    int hours;
-    int minutes;
+struct polar {
+    double distance;
+    double angle;
 };
 
-const int MinsPerHour = 60;
+struct rect {
+    double x;
+    double y;
+};
 
 
 
-travel_time sum (travel_time t1, travel_time t2);
-void show_time(travel_time t);
+polar rect_to_polar(rect xypos);
+void show_polar(polar dapos);
 
 
 
 int main() {
-    travel_time day1 = {5, 45};
-    travel_time day2 = {4, 55};
+    rect rplace;
+    polar pplace;
     
-    travel_time trip = sum(day1, day2);
-    cout << "Two day total: ";
-    show_time(trip);
-    
-    travel_time day3 = {4, 32};
-    cout << "Three day total: ";
-    show_time(sum(trip, day3));
+    cout << "Enter the x and y values: ";
+    while (cin >> rplace.x >> rplace.y) {
+        pplace = rect_to_polar(rplace);
+        show_polar(pplace);
+        
+        cout << "Next two numbers (q to quit): ";
+    }
     
     return 0;
 }
 
 
 
-travel_time sum (travel_time t1, travel_time t2) {
-    travel_time total;
-    total.minutes = (t1.minutes + t2.minutes) % MinsPerHour;
-    total.hours = t1.hours + t2.hours + (t1.minutes + t2.minutes) / MinsPerHour;
-    return total;
+polar rect_to_polar(rect xypos) {
+    polar answer;
+    answer.distance = sqrt(xypos.x * xypos.x + xypos.y * xypos.y);
+    answer.angle = atan2(xypos.y, xypos.x);
+    return answer;
 }
 
-void show_time(travel_time t) {
-    cout << t.hours << " hours " << t.minutes << " minutes." << endl;
+void show_polar(polar dapos) {
+    double degInRad = 180.0 / M_PI;
+    cout << "distance = " << dapos.distance << ", angle = " << dapos.angle * degInRad << " degrees.\n";
 }
