@@ -12,6 +12,10 @@ using namespace std;
 
 
 
+typedef const double * (*p_fun)(const double *, int);
+
+
+
 const double * f1(const double ar[], int n);
 const double * f2(const double [], int);
 const double * f3(const double *, int);
@@ -22,7 +26,7 @@ int main() {
     double av[3] = {1112.3, 1542.6, 2227.9};
     
     // Pointer to a function
-    const double * (*p1)(const double *ar, int) = f1;
+    p_fun p1 = f1;
     auto p2 = f2;   // C++11 automatic type deduction
     
     cout << "Using pointers to a functions:\n";
@@ -32,7 +36,7 @@ int main() {
     
     // pa an array of pointers
     // auto doesn't work with list initialization
-    const double * (*pa[3])(const double *, int) = {f1, f2, f3};
+    p_fun pa[3] = {f1, f2, f3};
     // but it does for for initializing to a single value
     // pb a pointer to first element of pa
     auto pb = pa;
@@ -60,7 +64,7 @@ int main() {
     cout << (*pc)[0](av, 3) << ": " << *(*pc)[0](av, 3) << endl;
     
     // hard way to declare pd
-    const double * (*(*pd)[3])(const double *, int) = &pa;
+    p_fun (*pd)[3] = &pa;
     // store return value in pdb
     const double *pdb = (*pd)[1](av, 3);
     cout << pdb << ": " << *pdb << endl;
