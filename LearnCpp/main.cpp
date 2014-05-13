@@ -12,55 +12,28 @@ using namespace std;
 
 
 
-void swapr(int &a, int &b);
-void swapp(int *p, int *q);
-void swapv(int a, int b);
+double cube(double a);
+double refcube(double &ra);
 
 
 
 int main() {
-    int wallet1 = 300;
-    int wallet2 = 350;
+    double x = 3.0;
     
-    cout << "wallet 1 = $" << wallet1 << ", wallet 2 = $" << wallet2 << endl;
-    
-    cout << "\nUsing references to swap content:\n";
-    swapr(wallet1, wallet2);
-    cout << "wallet 1 = $" << wallet1 << ", wallet 2 = $" << wallet2 << endl;
-    
-    cout << "\nUsing pointers to swap content again:\n";
-    swapp(&wallet1, &wallet2);
-    cout << "wallet 1 = $" << wallet1 << ", wallet 2 = $" << wallet2 << endl;
-    
-    cout << "\nTrying to use passing by value:\n";
-    swapv(wallet1, wallet2);
-    cout << "wallet 1 = $" << wallet1 << ", wallet 2 = $" << wallet2 << endl;
+    cout << cube(x) << " = cube of " << x << endl;
+    cout << refcube(x) << " = cube of " << x << endl;
     
     return 0;
 }
 
 
 
-void swapr(int &a, int &b) {
-    int temp;
-    
-    temp = a;
-    a = b;
-    b = temp;
+double cube(double a) {
+    a *= a * a;
+    return a;
 }
 
-void swapp(int *p, int *q) {
-    int temp;
-    
-    temp = *p;
-    *p = *q;
-    *q = temp;
-}
-
-void swapv(int a, int b) {
-    int temp;
-    
-    temp = a;
-    a = b;
-    b = temp;
+double refcube(double &ra) {
+    ra *= ra * ra;
+    return ra;
 }
