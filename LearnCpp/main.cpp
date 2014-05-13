@@ -12,43 +12,74 @@ using namespace std;
 
 
 
-double betsy(int lns);
-double pam(int lns);
-void estimate(int lines, double (*pf)(int));
-
-
-
-void subdivide(char ar[], int low, int high, int level);
+const double * f1(const double ar[], int n);
+const double * f2(const double [], int);
+const double * f3(const double *, int);
 
 
 
 int main() {
-    int code;
+    double av[3] = {1112.3, 1542.6, 2227.9};
     
-    cout << "How many lines of code do you need? ";
-    cin >> code;
+    // Pointer to a function
+    const double * (*p1)(const double *ar, int) = f1;
+    auto p2 = f2;   // C++11 automatic type deduction
     
-    cout << "Betsy:\n";
-    estimate(code, betsy);
+    cout << "Using pointers to a functions:\n";
+    cout << "Address         Value\n";
+    cout << (*p1)(av, 3) << ": " << *(*p1)(av, 3) << endl;
+    cout << p2(av, 3) << ": " << *p2(av, 3) << endl;
     
-    cout << endl;
-    cout << "Pam:\n";
-    estimate(code, pam);
+    // pa an array of pointers
+    // auto doesn't work with list initialization
+    const double * (*pa[3])(const double *, int) = {f1, f2, f3};
+    // but it does for for initializing to a single value
+    // pb a pointer to first element of pa
+    auto pb = pa;
+    // Or pre-C++11:
+//    const double * (**pb)(const double *, int) = pa;
+    
+    cout << "\nUsing an array of pointers to functions:\n";
+    cout << "Address         Value\n";
+    for (int i = 0; i < 3; i++) {
+        cout << pa[i](av, 3) << ": " << *pa[i](av, 3) << endl;
+    }
+    
+    cout << "\nUsing a pointer to a pointer to a function:\n";
+    cout << "Address         Value\n";
+    for (int i = 0; i < 3; i++) {
+        cout << pb[i](av, 3) << ": " << *pb[i](av, 3) << endl;
+    }
+    
+    cout << "\nUsing pointers to an array of pointers:\n";
+    cout << "Address         Value\n";
+    // easy way to declare pc
+//    auto pc = &pa;
+    // Or pre-C++11
+    const double * (*(*pc)[3])(const double *, int) = &pa;
+    cout << (*pc)[0](av, 3) << ": " << *(*pc)[0](av, 3) << endl;
+    
+    // hard way to declare pd
+    const double * (*(*pd)[3])(const double *, int) = &pa;
+    // store return value in pdb
+    const double *pdb = (*pd)[1](av, 3);
+    cout << pdb << ": " << *pdb << endl;
+    // alternative notation
+    cout << (*(*pd)[2])(av, 3) << ": " << *(*(*pd)[2])(av, 3) << endl;
     
     return 0;
 }
 
 
 
-double betsy(int lns) {
-    return 0.05 * lns;
+const double * f1(const double *ar, int n) {
+    return ar;
 }
 
-double pam(int lns) {
-    return 0.03 * lns + 0.0004 * lns * lns;
+const double * f2(const double ar[], int n) {
+    return (ar + 1);
 }
 
-void estimate(int lines, double (*pf)(int)) {
-    cout << lines << " will take " << pf(lines) << " hours.\n";
-//    cout << lines << " will take " << (*pf)(lines) << " hours.\n";
+const double * f3(const double ar[], int n) {
+    return (ar + 2);
 }
