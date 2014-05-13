@@ -12,26 +12,12 @@ using namespace std;
 
 
 
-inline double square(double x);
-
-
-
 int main() {
-    double a, b;
-    double c = 13;
+    int rats = 101;
+    int &rodents = rats;
     
-    a = square(5.0);
-    b = square(4.5 + 7.5);
-    
-    cout << "a = " << a << ", b = " << b << endl;
-    cout << "c = " << c << ", c squared = " << square(c++) << endl;
-    cout << "Now c = " << c << endl;
+    cout << "rats = " << rats << ", rodents = " << rodents << endl;
+    cout << "rats address = " << &rats << ", rodents address = " << &rodents << endl;
     
     return 0;
-}
-
-
-
-inline double square(double x) {
-    return x * x;
 }
