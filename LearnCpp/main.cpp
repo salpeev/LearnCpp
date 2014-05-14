@@ -12,39 +12,45 @@ using namespace std;
 
 
 
-const int Lim = 8;
+struct job {
+    char name[40];
+    double salary;
+    int floor;
+};
 
 
 
 template <typename T>
 void Swap(T &a, T &b);
 
-template <typename T>
-void Swap(T *a, T *b, int n);
+template <>
+void Swap<job>(job &j1, job &j2);
 
-void Show(int a[]);
+void Show(job &j);
+
 
 
 int main() {
+    cout.precision(2);
+    cout.setf(ios::fixed, ios::floatfield);
+    
     int i = 10;
     int j = 20;
     
     cout << "i, j = " << i << ", " << j << ".\n";
-    Swap(i, j);
+    cout << "Using compiller generated int swapper:\n";
+    swap(i, j);
     cout << "Now i, j = " << i << ", " << j << ".\n";
-    cout << endl;
     
-    int d1[Lim] = {0, 7, 0, 4, 1, 7, 7, 6};
-    int d2[Lim] = {0, 7, 2, 0, 1, 9, 6, 9};
-    cout << "Original arrays:\n";
-    Show(d1);
-    Show(d2);
-    
-    Swap(d1, d2, Lim);
-    
-    cout << "Swapped arrays:\n";
-    Show(d1);
-    Show(d2);
+    job sue = {"Susan Yaffee", 73000.6, 7};
+    job sidney = {"Sidney Taffee", 78060.72, 9};
+    cout << "Before job swapping:\n";
+    Show(sue);
+    Show(sidney);
+    Swap(sue, sidney);
+    cout << "After job swapping:\n";
+    Show(sue);
+    Show(sidney);
     
     return 0;
 }
@@ -59,21 +65,17 @@ void Swap(T &a, T &b) {
     b = temp;
 }
 
-template <typename T>
-void Swap(T *a, T *b, int n) {
-    for (int i = 0; i < n; i++) {
-        T temp = a[i];
-        a[i] = b[i];
-        b[i] = temp;
-    }
+template <>
+void Swap<job>(job &j1, job &j2) {
+    double t1 = j1.salary;
+    j1.salary = j2.salary;
+    j2.salary = t1;
+    
+    int t2 = j1.floor;
+    j1.floor = j2.floor;
+    j2.floor = t2;
 }
 
-void Show(int a[]) {
-    cout << a[0] << a[1] << "/";
-    cout << a[2] << a[3] << "/";
-    for (int i = 4; i < Lim; i++) {
-        cout << a[i];
-    }
-    cout << endl;
+void Show(job &j) {
+    cout << j.name << ": $" << j.salary << " on floor " << j.floor << endl;
 }
-
