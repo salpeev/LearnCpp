@@ -7,59 +7,68 @@
 //
 
 #include <iostream>
-#include <string>
+#include <fstream>
+#include <cstdlib>
 
 using namespace std;
 
 
 
-string version1(const string &s1, const string &s2);
-const string & version2(string &s1, const string &s2);
-const string & version3(string &s1, const string &s2);
+const int LIMIT = 5;
+
+
+
+void file_it(ostream &os, double fo, const double fe[], int n);
 
 
 
 int main() {
-    string input;
-    string copy;
-    string result;
+    ofstream fout;
+    const char *fn = "/Users/salpeev/Documents/Projects/LearnCpp/LearnCpp/ep-data.txt";
     
-    cout << "Enter a string: ";
-    getline(cin, input);
-    copy = input;
-    cout << "Your string as entered: " << input << endl;
-    result = version1(input, "***");
-    cout << "Your string enhanced: " << result << endl;
-    cout << "Your original string: " << input << endl;
+    fout.open(fn);
+    if (!fout.is_open()) {
+        cout << "Can't open: " << fn << endl;
+        exit(EXIT_FAILURE);
+    }
     
-    result = version2(input, "###");
-    cout << "Your string enhanced: " << result << endl;
-    cout << "Your original string: " << input << endl;
+    double objective;
+    cout << "Enter the focal length of your telescope objective in mm: ";
+    cin >> objective;
     
-    cout << "Resetting original string.\n";
-    input = copy;
-    result = version3(input, "@@@");
-    cout << "Your string enhanced: " << result << endl;
-    cout << "Your original string: " << input << endl;
+    double eps[LIMIT];
+    cout << "Enter the focal length, in mm, of " << LIMIT << " eyepieces:\n";
+    for (int i = 0; i < LIMIT; i++) {
+        cout << "Eyepiece #" << (i + 1) << ": ";
+        cin >> eps[i];
+    }
+    
+    file_it(cout, objective, eps, LIMIT);
+    file_it(fout, objective, eps, LIMIT);
     
     return 0;
 }
 
 
 
-string version1(const string &s1, const string &s2) {
-    string temp;
-    temp = s2 + s1 + s2;
-    return temp;
-}
-
-const string & version2(string &s1, const string &s2) {
-    s1 = s2 + s1 + s2;
-    return s1;
-}
-
-const string & version3(string &s1, const string &s2) {
-    string temp;
-    temp = s2 + s1 + s2;
-    return temp;
+void file_it(ostream &os, double fo, const double fe[], int n) {
+    ios_base::fmtflags initial = os.setf(ios_base::fixed);
+    os.precision(0);
+    
+    os << "Focal length of objective: " << fo << " mm\n";
+    os.setf(ios_base::showpoint);
+    os.precision(1);
+    os.width(12);
+    os << "f.1. eyepiece";
+    os.width(15);
+    os << "magnification" << endl;
+    
+    for (int i = 0; i < n; i++) {
+        os.width(12);
+        os << fe[i];
+        os.width(15);
+        os << int(fo / fe[i] + 0.5) << endl;
+    }
+    
+    os.setf(initial);
 }
