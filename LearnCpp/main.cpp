@@ -12,45 +12,43 @@ using namespace std;
 
 
 
-struct job {
-    char name[40];
-    double salary;
-    int floor;
+struct debts {
+    char name[50];
+    double amount;
 };
 
 
 
 template <typename T>
-void Swap(T &a, T &b);
+void ShowArray(T arr[], int n);
 
-template <>
-void Swap<job>(job &j1, job &j2);
-
-void Show(job &j);
+template <typename T>
+void ShowArray(T *arr[], int n);
 
 
 
 int main() {
-    cout.precision(2);
-    cout.setf(ios::fixed, ios::floatfield);
+    int things[6] = {13, 31, 103, 301, 310, 130};
+    debts mr_E[3] = {
+        {"Ima Wolfe", 2400.0},
+        {"Ura Foxe", 1300.0},
+        {"Iby Stout", 1800.0}
+    };
     
-    int i = 10;
-    int j = 20;
+    double *pd[3];
     
-    cout << "i, j = " << i << ", " << j << ".\n";
-    cout << "Using compiller generated int swapper:\n";
-    swap(i, j);
-    cout << "Now i, j = " << i << ", " << j << ".\n";
+    // Set pointers to the amount members of the structures in mr_E
+    for (int i = 0; i < 3; i++) {
+        pd[i] = &mr_E[i].amount;
+    }
     
-    job sue = {"Susan Yaffee", 73000.6, 7};
-    job sidney = {"Sidney Taffee", 78060.72, 9};
-    cout << "Before job swapping:\n";
-    Show(sue);
-    Show(sidney);
-    Swap(sue, sidney);
-    cout << "After job swapping:\n";
-    Show(sue);
-    Show(sidney);
+    cout << "Listing Mr. E's counts of things:\n";
+    ShowArray(things, 6);
+    cout << endl;
+    
+    cout << "Listing Mr. E's debts:\n";
+    ShowArray(pd, 3);
+    cout << endl;
     
     return 0;
 }
@@ -58,24 +56,19 @@ int main() {
 
 
 template <typename T>
-void Swap(T &a, T &b) {
-    T temp;
-    temp = a;
-    a = b;
-    b = temp;
+void ShowArray(T arr[], int n) {
+    cout << "Template A: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << ' ';
+    }
+    cout << endl;
 }
 
-template <>
-void Swap<job>(job &j1, job &j2) {
-    double t1 = j1.salary;
-    j1.salary = j2.salary;
-    j2.salary = t1;
-    
-    int t2 = j1.floor;
-    j1.floor = j2.floor;
-    j2.floor = t2;
-}
-
-void Show(job &j) {
-    cout << j.name << ": $" << j.salary << " on floor " << j.floor << endl;
+template <typename T>
+void ShowArray(T *arr[], int n) {
+    cout << "Template B: ";
+    for (int i = 0; i < n; i++) {
+        cout << *arr[i] << ' ';
+    }
+    cout << endl;
 }
