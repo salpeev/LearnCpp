@@ -12,63 +12,32 @@ using namespace std;
 
 
 
-struct debts {
-    char name[50];
-    double amount;
-};
+template <class T>
+T lesser(T a, T b) {
+    cout << "#1: ";
+    return (a < b) ? a : b;
+}
 
-
-
-template <typename T>
-void ShowArray(T arr[], int n);
-
-template <typename T>
-void ShowArray(T *arr[], int n);
+int lesser(int a, int b) {
+    cout << "#2: ";
+    a = (a < 0) ? -a : a;
+    b = (b < 0) ? -b : b;
+    return (a < b) ? a : b;
+}
 
 
 
 int main() {
-    int things[6] = {13, 31, 103, 301, 310, 130};
-    debts mr_E[3] = {
-        {"Ima Wolfe", 2400.0},
-        {"Ura Foxe", 1300.0},
-        {"Iby Stout", 1800.0}
-    };
+    int m = 20;
+    int n = -30;
+    double x = 15.5;
+    double y = 25.9;
     
-    double *pd[3];
-    
-    // Set pointers to the amount members of the structures in mr_E
-    for (int i = 0; i < 3; i++) {
-        pd[i] = &mr_E[i].amount;
-    }
-    
-    cout << "Listing Mr. E's counts of things:\n";
-    ShowArray(things, 6);
-    cout << endl;
-    
-    cout << "Listing Mr. E's debts:\n";
-    ShowArray(pd, 3);
-    cout << endl;
+    cout << lesser(m, n) << endl;
+    cout << lesser(x, y) << endl;
+    cout << lesser<>(m, n) << endl;
+    cout << lesser<int>(x, y) << endl;
     
     return 0;
 }
 
-
-
-template <typename T>
-void ShowArray(T arr[], int n) {
-    cout << "Template A: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << ' ';
-    }
-    cout << endl;
-}
-
-template <typename T>
-void ShowArray(T *arr[], int n) {
-    cout << "Template B: ";
-    for (int i = 0; i < n; i++) {
-        cout << *arr[i] << ' ';
-    }
-    cout << endl;
-}
