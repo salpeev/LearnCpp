@@ -12,22 +12,20 @@ using namespace std;
 
 
 
-double warming = 0.3;
+int tom = 3;
+int dick = 30;
+static int harry = 300;
 
 
 
-void update(double dt);
-void local();
+void remote_access();
 
 
 
 int main() {
-    
-    cout << "Global warming is " << warming << " degrees.\n";
-    update(0.1);
-    cout << "Global warming is " << warming << " degrees.\n";
-    local();
-    cout << "Global warming is " << warming << " degrees.\n";
+    cout << "main() reports the following addresses:\n";
+    cout << &tom << " = &tom, " << &dick << " = &dick, " << &harry << " = &harry\n";
+    remote_access();
     
     return 0;
 }

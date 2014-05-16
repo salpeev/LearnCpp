@@ -12,26 +12,13 @@ using namespace std;
 
 
 
-extern double warming;
+extern int tom;
+static int dick = 10;
+int harry = 200;
 
 
 
-void update(double dt);
-void local();
-
-
-
-void update(double dt) {
-    // Optional redeclaration
-    extern double warming;
-    
-    warming += dt;
-    cout << "Updating global warming to " << warming << " degrees.\n";
-}
-
-void local() {
-    double warming = 0.8;
-    
-    cout << "Local warming = " << warming << " degrees.\n";
-    cout << "But global warming = " << ::warming << " degrees.\n";   // Access global variable with the scope resolution operator
+void remote_access() {
+    cout << "remote_access() reports the following addresses:\n";
+    cout << &tom << " = &tom, " << &dick << " = &dick, " << &harry << " = &harry\n";
 }
