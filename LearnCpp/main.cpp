@@ -7,22 +7,43 @@
 //
 
 #include <iostream>
-#include "coordin.h"
 
 using namespace std;
 
 
 
+void oil(int x);
+
+
+
 int main() {
-    rect rplace;
+    int texas = 31;
+    int year = 2011;
     
-    cout << "Enter the x and y values: ";
-    while (cin >> rplace.x >> rplace.y) {
-        polar pplace = rect_to_polar(rplace);
-        show_polar(pplace);
-        cout << "Next two numbers (q to quit): ";
-    }
+    cout << "In main(), texas = " << texas << ", &texas = " << &texas << endl;
+    cout << "In main(), year = " << year << ", &year = " << &year << endl;
+    
+    oil(texas);
+    
+    cout << "In main(), texas = " << texas << ", &texas = " << &texas << endl;
+    cout << "In main(), year = " << year << ", &year = " << &year << endl;
     
     return 0;
 }
 
+
+
+void oil(int x) {
+    int texas = 5;
+    
+    cout << "In oil(), texas = " << texas << ", &texas = " << &texas << endl;
+    cout << "In oil(), x = " << x << ", &x = " << &x << endl;
+    
+    {
+        int texas = 113;
+        cout << "In block, texas = " << texas << ", &texas = " << &texas << endl;
+        cout << "In block, x = " << x << ", &x = " << &x << endl;
+    }
+    
+    cout << "Post-block texas = " << texas << ", &texas = " << &texas << endl;
+}
