@@ -7,68 +7,54 @@
 //
 
 #include <iostream>
-#include <new>
-
-using namespace std;
+#include "namesp.h"
 
 
 
-const int BUF = 512;
-const int N = 5;
-char buffer[BUF];
+void other(void);
+void another(void);
 
 
 
-int main() {
-    cout << "Calling new and placement new:\n";
-    double *pd1, *pd2;
-    pd1 = new double[N];
-    pd2 = new (buffer) double[N];
+int main(void) {
+    using debts::Debt;
+    using debts::showDebt;
     
-    for (int i = 0; i < N; i++) {
-        pd2[i] = pd1[i] = 1000.0 + 20.0 * i;
-    }
-    
-    cout << "Memory addresses:\n" << "  heap: " << pd1 << "  static: " << (void *)buffer << endl;
-    
-    cout << "Memory contents:\n";
-    for (int i = 0; i < N; i++) {
-        cout << pd1[i] << " at " << &pd1[i] << "; ";
-        cout << pd2[i] << " at " << &pd2[i] << endl;
-    }
-    
-    cout << "\nCalling new and placement new a second time:\n";
-    double *pd3, *pd4;
-    pd3 = new double[N];
-    pd4 = new (buffer) double[N];
-    
-    for (int i = 0; i < N; i++) {
-        pd4[i] = pd3[i] = 1000.0 + 40.0 * i;
-    }
-    
-    cout << "Memory contents:\n";
-    for (int i = 0; i < N; i++) {
-        cout << pd3[i] << " at " << &pd3[i] << "; ";
-        cout << pd4[i] << " at " << &pd4[i] << endl;
-    }
-    
-    cout << "\nCalling new and placement new a third time:\n";
-    delete [] pd1;
-    pd1 = new double[N];
-    pd2 = new (buffer + N * sizeof(double)) double[N];
-    
-    for (int i = 0; i < N; i++) {
-        pd2[i] = pd1[i] = 1000.0 + 60.0 * i;
-    }
-    
-    cout << "Memory contents:\n";
-    for (int i = 0; i < N; i++) {
-        cout << pd1[i] << " at " << &pd1[i] << "; ";
-        cout << pd2[i] << " at " << &pd2[i] << endl;
-    }
-    
-    delete [] pd1;
-    delete [] pd3;
+    Debt golf = {{"Debby", "Goatsniff"}, 120.0};
+    showDebt(golf);
+    other();
+    another();
     
     return 0;
+}
+
+
+
+void other(void) {
+    using std::cout;
+    using std::endl;
+    using namespace debts;
+    
+    Person dg = {"Doodles", "Glister"};
+    showPerson(dg);
+    cout << endl;
+    
+    Debt zippy[3];
+    for (int i = 0; i < 3; i++) {
+        getDebt(zippy[i]);
+    }
+    for (int i = 0; i < 3; i++) {
+        showDebt(zippy[i]);
+    }
+    cout << "Total debt: " << sumDebts(zippy, 3) << endl;
+    
+    return;
+}
+
+void another(void) {
+    using pers::Person;
+    
+    Person collector = {"Milo", "Rightshift"};
+    pers::showPerson(collector); // ???
+    std::cout << std::endl;
 }
