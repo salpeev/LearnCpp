@@ -7,54 +7,21 @@
 //
 
 #include <iostream>
-#include "namesp.h"
-
-
-
-void other(void);
-void another(void);
+#include "stock00.h"
 
 
 
 int main(void) {
-    using debts::Debt;
-    using debts::showDebt;
-    
-    Debt golf = {{"Debby", "Goatsniff"}, 120.0};
-    showDebt(golf);
-    other();
-    another();
-    
+    Stock fluffy_the_cat;
+    fluffy_the_cat.acquire("NanoSmart", 20, 12.5);
+    fluffy_the_cat.show();
+    fluffy_the_cat.buy(15, 18.125);
+    fluffy_the_cat.show();
+    fluffy_the_cat.sell(400, 20.0);
+    fluffy_the_cat.show();
+    fluffy_the_cat.buy(300000, 40.125);
+    fluffy_the_cat.show();
+    fluffy_the_cat.sell(300000, 0.125);
+    fluffy_the_cat.show();
     return 0;
-}
-
-
-
-void other(void) {
-    using std::cout;
-    using std::endl;
-    using namespace debts;
-    
-    Person dg = {"Doodles", "Glister"};
-    showPerson(dg);
-    cout << endl;
-    
-    Debt zippy[3];
-    for (int i = 0; i < 3; i++) {
-        getDebt(zippy[i]);
-    }
-    for (int i = 0; i < 3; i++) {
-        showDebt(zippy[i]);
-    }
-    cout << "Total debt: " << sumDebts(zippy, 3) << endl;
-    
-    return;
-}
-
-void another(void) {
-    using pers::Person;
-    
-    Person collector = {"Milo", "Rightshift"};
-    pers::showPerson(collector); // ???
-    std::cout << std::endl;
 }
