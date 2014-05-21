@@ -7,34 +7,56 @@
 //
 
 #include <iostream>
-#include "stock00.h"
-
-
-
-const int STKS = 4;
+#include <cctype>
+#include "stack.h"
 
 
 
 int main(void) {
-    Stock stocks[STKS] = {
-        Stock("NanoSmart", 12, 20.0),
-        Stock("Boffo Objects", 200, 2.0),
-        Stock("Monolithik Obelisks", 130, 3.25),
-        Stock("Fleep Enterprises", 60, 6.5)
-    };
+    using namespace std;
     
-    std::cout << "Stock holdings:\n";
-    for (int st = 0; st < STKS; st++) {
-        stocks[st].show();
+    Stack st;
+    char ch;
+    unsigned long po;
+    
+    cout << "Please enter A to add a purchase order,\nP to process a PO, or Q to quit.\n";
+    
+    while (cin >> ch && toupper(ch) != 'Q') {
+        while (cin.get() != '\n') {
+            continue;
+        }
+        
+        if (!isalpha(ch)) {
+            cout << '\a';
+            continue;
+        }
+        
+        switch (ch) {
+            case 'a':
+            case 'A': {
+                cout << "Enter a PO nubmer to add: ";
+                cin >> po;
+                if (st.isfull()) {
+                    cout << "stack already full\n";
+                } else {
+                    st.push(po);
+                }
+                break;
+            }
+            case 'p':
+            case 'P': {
+                if (st.isempty()) {
+                    cout << "stack already empty\n";
+                } else {
+                    st.pop(po);
+                    cout << "PO #" << po << " popped\n";
+                }
+                break;
+            }
+        }
+        
+        cout << "Please enter A to add a purchase order,\nP to process a PO, or Q to quit.\n";
     }
-    
-    const Stock *top = &stocks[0];
-    for (int st = 1; st < STKS; st++) {
-        top = &top->topval(stocks[st]);
-    }
-    
-    std::cout << "\nMost valuable holding:\n";
-    top->show();
     
     return 0;
 }

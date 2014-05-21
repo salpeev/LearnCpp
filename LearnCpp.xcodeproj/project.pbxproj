@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B428D9BE192CD69D0032DC1C /* stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B428D9BC192CD69D0032DC1C /* stack.cpp */; };
 		B42D6E5B17711586001C2579 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B42D6E5A17711586001C2579 /* main.cpp */; };
-		B44B0184192B7565004141AC /* stock00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B44B0182192B7565004141AC /* stock00.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B428D9BC192CD69D0032DC1C /* stack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stack.cpp; sourceTree = "<group>"; };
+		B428D9BD192CD69D0032DC1C /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
 		B42D6E5717711586001C2579 /* LearnCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42D6E5A17711586001C2579 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		B44B0182192B7565004141AC /* stock00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stock00.cpp; sourceTree = "<group>"; };
-		B44B0183192B7565004141AC /* stock00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stock00.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				B42D6E5A17711586001C2579 /* main.cpp */,
-				B44B0182192B7565004141AC /* stock00.cpp */,
-				B44B0183192B7565004141AC /* stock00.h */,
+				B428D9BC192CD69D0032DC1C /* stack.cpp */,
+				B428D9BD192CD69D0032DC1C /* stack.h */,
 			);
 			path = LearnCpp;
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B44B0184192B7565004141AC /* stock00.cpp in Sources */,
+				B428D9BE192CD69D0032DC1C /* stack.cpp in Sources */,
 				B42D6E5B17711586001C2579 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
