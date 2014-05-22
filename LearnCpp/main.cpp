@@ -7,56 +7,35 @@
 //
 
 #include <iostream>
-#include <cctype>
-#include "stack.h"
+#include "mytime.h"
 
 
 
 int main(void) {
-    using namespace std;
+    using std::cout;
+    using std::endl;
     
-    Stack st;
-    char ch;
-    unsigned long po;
+    Time planning;
+    Time coding(2, 40);
+    Time fixing(5, 55);
+    Time total;
     
-    cout << "Please enter A to add a purchase order,\nP to process a PO, or Q to quit.\n";
+    cout << "planning time = ";
+    planning.Show();
+    cout << endl;
     
-    while (cin >> ch && toupper(ch) != 'Q') {
-        while (cin.get() != '\n') {
-            continue;
-        }
-        
-        if (!isalpha(ch)) {
-            cout << '\a';
-            continue;
-        }
-        
-        switch (ch) {
-            case 'a':
-            case 'A': {
-                cout << "Enter a PO nubmer to add: ";
-                cin >> po;
-                if (st.isfull()) {
-                    cout << "stack already full\n";
-                } else {
-                    st.push(po);
-                }
-                break;
-            }
-            case 'p':
-            case 'P': {
-                if (st.isempty()) {
-                    cout << "stack already empty\n";
-                } else {
-                    st.pop(po);
-                    cout << "PO #" << po << " popped\n";
-                }
-                break;
-            }
-        }
-        
-        cout << "Please enter A to add a purchase order,\nP to process a PO, or Q to quit.\n";
-    }
+    cout << "coding time = ";
+    coding.Show();
+    cout << endl;
+    
+    cout << "fixing time = ";
+    fixing.Show();
+    cout << endl;
+    
+    total = coding.Sum(fixing);
+    cout << "coding.Sum(fixing) = ";
+    total.Show();
+    cout << endl;
     
     return 0;
 }
