@@ -15,34 +15,17 @@ int main(void) {
     using std::cout;
     using std::endl;
     
-    Time weeding(4, 35);
-    Time waxing(2, 47);
-    Time total;
-    Time diff;
-    Time adjusted;
+    Time aida(3, 35);
+    Time tosca(2, 48);
+    Time temp;
     
-    cout << "weeding time = ";
-    weeding.Show();
-    cout << endl;
-    
-    cout << "waxing time = ";
-    waxing.Show();
-    cout << endl;
-    
-    cout << "total work time = ";
-    total = weeding + waxing;
-    total.Show();
-    cout << endl;
-    
-    cout << "weeding time - waxing time = ";
-    diff = weeding - waxing;
-    diff.Show();
-    cout << endl;
-    
-    cout << "adjusted work time = ";
-    adjusted = total * 1.5;
-    adjusted.Show();
-    cout << endl;
+    cout << "aida and tosca:\n";
+    cout << aida << "; " << tosca << endl;
+    temp = aida + tosca;
+    cout << "aida + tosca: " << temp << endl;
+    temp = aida * 1.17;
+    cout << "aida * 1.17: " << temp << endl;
+    cout << "10.0 * tosca: " << 10.0 * tosca << endl;
     
     return 0;
 }
