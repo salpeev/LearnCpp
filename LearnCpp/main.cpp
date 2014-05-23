@@ -7,54 +7,51 @@
 //
 
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include "vector.h"
+#include "stonewt.h"
+
+using namespace std;
+
+
+
+void display(const Stonewt &st, int n);
 
 
 
 int main(void) {
-    using namespace std;
-    using VECTOR::Vector;
+    Stonewt incognito = 275;
+    Stonewt wolfe(285.7);
+    Stonewt taft(21, 8);
     
-    srand((unsigned int)time(0));
+    cout << "The celebrity weighted ";
+    incognito.show_stn();
+    cout << "The detective weighted ";
+    wolfe.show_stn();
+    cout << "The President weighted ";
+    taft.show_lbs();
     
-    double direction;
-    Vector step;
-    Vector result(0.0, 0.0);
-    unsigned long steps = 0;
-    double target;
-    double dstep;
+    incognito = 276.8;
+    taft = 325;
     
-    cout << "Enter target distance (q to quit): ";
-    while (cin >> target) {
-        cout << "Enter step length: ";
-        if (!(cin >> dstep)) {
-            break;
-        }
-        
-        while (result.magval() < target) {
-            direction = rand() % 360;
-            step.reset(dstep, direction, Vector::POL);
-            result = result + step;
-            steps++;
-        }
-        
-        cout << "After " << steps << " steps, the subject has the following location:\n";
-        cout << result << endl;
-        result.polar_mode();
-        cout << " or\n" << result << endl;
-        
-        cout << "Average outvard distance per step = " << result.magval() / steps << endl;
-        steps = 0;
-        result.reset(0.0, 0.0);
-        cout << "Enter target distance (q to quit): ";
-    }
+    cout << "After dinner, the celebrity weighted ";
+    incognito.show_stn();
+    cout << "After dinner, the President weighted ";
+    taft.show_lbs();
     
-    cin.clear();
-    while (cin.get() != '\n') {
-        continue;
-    }
+    display(taft, 2);
+    
+    cout << "The wrestler weighted even more.\n";
+    display(422, 2);
+    
+    cout << "No stone left unearned.\n";
     
     return 0;
+}
+
+
+
+void display(const Stonewt &st, int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "Wow! ";
+        st.show_stn();
+    }
 }
