@@ -21,6 +21,9 @@ public:
     void show_lbs() const;
     void show_stn() const;
     
+    operator int() const;
+    operator double() const;
+    
 private:
     static const int Lbs_per_stn = 14;
     
