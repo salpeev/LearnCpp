@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B40D3187193C94C500FA3E8B /* StringBad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B40D3185193C94C500FA3E8B /* StringBad.cpp */; };
 		B42D6E5B17711586001C2579 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B42D6E5A17711586001C2579 /* main.cpp */; };
-		B4E7890E192F3D7800333747 /* stonewt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E7890C192F3D7800333747 /* stonewt.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B40D3185193C94C500FA3E8B /* StringBad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringBad.cpp; sourceTree = "<group>"; };
+		B40D3186193C94C500FA3E8B /* StringBad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringBad.h; sourceTree = "<group>"; };
 		B42D6E5717711586001C2579 /* LearnCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42D6E5A17711586001C2579 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		B4E7890C192F3D7800333747 /* stonewt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stonewt.cpp; sourceTree = "<group>"; };
-		B4E7890D192F3D7800333747 /* stonewt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stonewt.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				B42D6E5A17711586001C2579 /* main.cpp */,
-				B4E7890C192F3D7800333747 /* stonewt.cpp */,
-				B4E7890D192F3D7800333747 /* stonewt.h */,
+				B40D3185193C94C500FA3E8B /* StringBad.cpp */,
+				B40D3186193C94C500FA3E8B /* StringBad.h */,
 			);
 			path = LearnCpp;
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4E7890E192F3D7800333747 /* stonewt.cpp in Sources */,
+				B40D3187193C94C500FA3E8B /* StringBad.cpp in Sources */,
 				B42D6E5B17711586001C2579 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
