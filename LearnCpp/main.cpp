@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "String.h"
 
 using namespace std;
@@ -50,20 +52,28 @@ int main(void) {
             cout << sayings[i][0] << ": " << sayings[i] << endl;
         }
         
-        int shortest = 0;
-        int first = 0;
+        // Using pointers to keep track of shortest, first strings
+        
+        String *shortest = &sayings[0];
+        String *first = &sayings[0];
+        
         for (int i = 1; i < total; i++) {
-            if (sayings[i].length() < sayings[shortest].length()) {
-                shortest = i;
+            if (sayings[i].length() < shortest->length()) {
+                shortest = &sayings[i];
             }
-            if (sayings[i] < sayings[first]) {
-                first = i;
+            if (sayings[i] < *first) {
+                first = &sayings[i];
             }
         }
         
-        cout << "Shortest saying:\n" << sayings[shortest] << endl;
-        cout << "First aplhabetically:\n" << sayings[first] << endl;
-        cout << "This program used " << String::HowMany() << " String objects.\n";
+        cout << "Shortest saying:\n" << *shortest << endl;
+        cout << "First aplhabetically:\n" << *first << endl;
+        
+        srand((unsigned int)time(nullptr));
+        int choice = rand() % total;
+        String *favorite = new String(sayings[choice]);
+        cout << "My favorite saying:\n" << *favorite << endl;
+        delete favorite;
     } else {
         cout << "No input.\n";
     }

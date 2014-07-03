@@ -92,7 +92,7 @@ std::istream & operator>>(std::istream &is, String &st) {
 }
 
 bool operator<(const String &s1, const String &s2) {
-    return (strcmp(s1.str, s1.str) < 0);
+    return (strcmp(s1.str, s2.str) < 0);
 }
 
 bool operator>(const String &s1, const String &s2) {
