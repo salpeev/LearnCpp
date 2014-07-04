@@ -7,76 +7,69 @@
 //
 
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include "String.h"
+#include <string>
+#include <new>
 
 using namespace std;
 
 
 
-const int ArSize = 10;
-const int MaxLen = 81;
+const int BUF = 512;
+
+
+
+class JustTesting {
+public:
+    JustTesting(const string &s = "Just Testing", int n = 0) {
+        words = s;
+        number = n;
+        cout << words << " constructed.\n";
+    }
+    ~JustTesting() {
+        cout << words << " destroyed.\n";
+    }
+    
+    void Show() const {
+        cout << words << ", " << number << endl;
+    }
+    
+private:
+    string words;
+    int number;
+};
 
 
 
 int main(void) {
-    String name;
-    cout << "Hi, what's your name?\n";
-    cin >> name;
+    char *buffer = new char[BUF];
     
-    cout << name << ", please enter up to " << ArSize << " short sayings <empty line to quit>:\n";
+    JustTesting *pc1, *pc2;
     
-    String sayings[ArSize];
-    char temp[MaxLen];
+    pc1 = new(buffer) JustTesting;
+    pc2 = new JustTesting("Heap1", 20);
     
-    int i;
-    for (i = 0; i < ArSize; i++) {
-        cout << i + 1 << ": ";
-        cin.get(temp, MaxLen);
-        while (cin && cin.get() != '\n') {
-            continue;
-        }
-        if (!cin || temp[0] == '\0') {
-            break;
-        } else {
-            sayings[i] = temp;
-        }
-    }
+    cout << "Memory block address:\n" << "buffer: " << (void *)buffer << "     heap: " << pc2 << endl;
     
-    int total = i;
+    cout << "Memory contents:\n";
+    cout << pc1 << ": ";
+    pc1->Show();
+    cout << pc2 << ": ";
+    pc2->Show();
     
-    if (total > 0) {
-        cout << "Here are your sayings:\n";
-        for (int i = 0; i < total; i++) {
-            cout << sayings[i][0] << ": " << sayings[i] << endl;
-        }
-        
-        // Using pointers to keep track of shortest, first strings
-        
-        String *shortest = &sayings[0];
-        String *first = &sayings[0];
-        
-        for (int i = 1; i < total; i++) {
-            if (sayings[i].length() < shortest->length()) {
-                shortest = &sayings[i];
-            }
-            if (sayings[i] < *first) {
-                first = &sayings[i];
-            }
-        }
-        
-        cout << "Shortest saying:\n" << *shortest << endl;
-        cout << "First aplhabetically:\n" << *first << endl;
-        
-        srand((unsigned int)time(nullptr));
-        int choice = rand() % total;
-        String *favorite = new String(sayings[choice]);
-        cout << "My favorite saying:\n" << *favorite << endl;
-        delete favorite;
-    } else {
-        cout << "No input.\n";
-    }
+    JustTesting *pc3, *pc4;
+    
+    pc3 = new(buffer) JustTesting("Bad Idea", 6);
+    pc4 = new JustTesting("Heap2", 10);
+    
+    cout << "Memory contents:\n";
+    cout << pc3 << ": ";
+    pc3->Show();
+    cout << pc4 << ": ";
+    pc4->Show();
+    
+    delete pc2;
+    delete pc4;
+    delete [] buffer;
     
     return 0;
 }
