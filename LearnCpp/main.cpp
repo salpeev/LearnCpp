@@ -35,7 +35,7 @@ int main(void) {
     rplayer1.Name();
     cout << "; Rating: " << rplayer1.Rating() << endl;
     
-    RatedPlayer rplayer2(1212, rplayer1);
+    RatedPlayer rplayer2(1212, player1);
     cout << "Name: ";
     rplayer2.Name();
     cout << "; Rating: " << rplayer2.Rating() << endl;
