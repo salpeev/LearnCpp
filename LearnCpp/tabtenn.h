@@ -29,4 +29,18 @@ private:
     bool hasTable;
 };
 
+
+
+class RatedPlayer: public TableTennisPlayer {
+public:
+    RatedPlayer(unsigned int r = 0, const string &fn = "none", const string &ln = "none", bool ht = false);
+    RatedPlayer(unsigned int r, const TableTennisPlayer &tp);
+    
+    unsigned int Rating() const {return rating;}
+    void ResetRating(unsigned int r) {rating = r;}
+    
+private:
+    unsigned int rating;
+};
+
 #endif
