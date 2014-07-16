@@ -11,29 +11,63 @@
 
 using namespace std;
 
+const int CLIENTS = 4;
+
 
 
 int main(void) {
-    Brass piggy("Porcelot Pig", 381299, 4000.0);
-    BrassPlus hoggy("Horatio Hog", 382288, 3000.0);
+    Brass *p_clients[CLIENTS];
     
-    piggy.ViewAcct();
+    string temp;
+    long tempnum;
+    double tempbal;
+    char kind;
+    
+    for (int i = 0; i < CLIENTS; i++) {
+        cout << "Enter clients name: ";
+        getline(cin, temp);
+        
+        cout << "Enter clients account number: ";
+        cin >> tempnum;
+        
+        cout << "Enter opening balance: $";
+        cin >> tempbal;
+        
+        cout << "Enter 1 for Brass account or 2 for BrassPlus account: ";
+        while (cin >> kind && (kind != '1' && kind != '2')) {
+            cout << "Enter either 1 or 2: ";
+        }
+        
+        if (kind == '1') {
+            p_clients[i] = new Brass(temp, tempnum, tempbal);
+        } else {
+            double tmax;
+            double trate;
+            
+            cout << "Enter the overdraft limit: $";
+            cin >> tmax;
+            
+            cout << "Enter the interest rate as a decimal function: ";
+            cin >> trate;
+            
+            p_clients[i] = new BrassPlus(temp, tempnum, tempbal, tmax, trate);
+        }
+        
+        while (cin.get() != '\n') {
+            continue;
+        }
+    }
+    
     cout << endl;
     
-    hoggy.ViewAcct();
-    cout << endl;
+    for (int i = 0; i < CLIENTS; i++) {
+        p_clients[i]->ViewAcct();
+        cout << endl;
+    }
     
-    cout << "Depositing $1000 into the Hogg Account:\n";
-    hoggy.Deposit(1000.0);
-    cout << "New balance: $" << hoggy.Balance() << endl;
-    
-    cout << "Withdrawing $4200 from the Pig Account:\n";
-    piggy.Withdraw(4200.0);
-    cout << "Pig account balance: $" << piggy.Balance() << endl;
-    
-    cout << "Withdrawing $4200 from the Hog Account:\n";
-    hoggy.Withdraw(4200.0);
-    hoggy.ViewAcct();
+    for (int i = 0; i < CLIENTS; i++) {
+        delete p_clients[i];
+    }
     
     return 0;
 }
