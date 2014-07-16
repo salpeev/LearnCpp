@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B40D8696196A82AF00C92C7F /* tabtenn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B40D8694196A82AF00C92C7F /* tabtenn.cpp */; };
 		B42D6E5B17711586001C2579 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B42D6E5A17711586001C2579 /* main.cpp */; };
+		B44B498D197523E400995EE6 /* Brass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B44B498B197523E400995EE6 /* Brass.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B40D8694196A82AF00C92C7F /* tabtenn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tabtenn.cpp; sourceTree = "<group>"; };
-		B40D8695196A82AF00C92C7F /* tabtenn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tabtenn.h; sourceTree = "<group>"; };
 		B42D6E5717711586001C2579 /* LearnCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42D6E5A17711586001C2579 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B44B498B197523E400995EE6 /* Brass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Brass.cpp; sourceTree = "<group>"; };
+		B44B498C197523E400995EE6 /* Brass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brass.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				B42D6E5A17711586001C2579 /* main.cpp */,
-				B40D8694196A82AF00C92C7F /* tabtenn.cpp */,
-				B40D8695196A82AF00C92C7F /* tabtenn.h */,
+				B44B498B197523E400995EE6 /* Brass.cpp */,
+				B44B498C197523E400995EE6 /* Brass.h */,
 			);
 			path = LearnCpp;
 			sourceTree = "<group>";
@@ -118,8 +118,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B40D8696196A82AF00C92C7F /* tabtenn.cpp in Sources */,
 				B42D6E5B17711586001C2579 /* main.cpp in Sources */,
+				B44B498D197523E400995EE6 /* Brass.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

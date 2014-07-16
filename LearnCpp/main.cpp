@@ -7,38 +7,33 @@
 //
 
 #include <iostream>
-#include "tabtenn.h"
+#include "Brass.h"
 
 using namespace std;
 
 
 
 int main(void) {
-    TableTennisPlayer player1("Tara", "Boomdea", false);
-    RatedPlayer rplayer1(1140, "Mallory", "Duck", true);
+    Brass piggy("Porcelot Pig", 381299, 4000.0);
+    BrassPlus hoggy("Horatio Hog", 382288, 3000.0);
     
-    rplayer1.Name();
-    if (rplayer1.HasTable()) {
-        cout << ": has a table.\n";
-    } else {
-        cout << ": hasn't a table.\n";
-    }
+    piggy.ViewAcct();
+    cout << endl;
     
-    player1.Name();
-    if (player1.HasTable()) {
-        cout << ": has a table.\n";
-    } else {
-        cout << ": hasn't a table.\n";
-    }
+    hoggy.ViewAcct();
+    cout << endl;
     
-    cout << "Name: ";
-    rplayer1.Name();
-    cout << "; Rating: " << rplayer1.Rating() << endl;
+    cout << "Depositing $1000 into the Hogg Account:\n";
+    hoggy.Deposit(1000.0);
+    cout << "New balance: $" << hoggy.Balance() << endl;
     
-    RatedPlayer rplayer2(1212, player1);
-    cout << "Name: ";
-    rplayer2.Name();
-    cout << "; Rating: " << rplayer2.Rating() << endl;
+    cout << "Withdrawing $4200 from the Pig Account:\n";
+    piggy.Withdraw(4200.0);
+    cout << "Pig account balance: $" << piggy.Balance() << endl;
+    
+    cout << "Withdrawing $4200 from the Hog Account:\n";
+    hoggy.Withdraw(4200.0);
+    hoggy.ViewAcct();
     
     return 0;
 }
