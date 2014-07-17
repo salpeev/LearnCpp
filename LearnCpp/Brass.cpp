@@ -9,123 +9,81 @@
 #include "Brass.h"
 #include <iostream>
 
-using std::cout;
-using std::endl;
-using std::string;
-
-typedef std::ios_base::fmtflags format;
-typedef std::streamsize precis;
+using namespace std;
 
 
 
-format SetFormat();
-void Restore(format f, precis p);
-
-
-
-Brass::Brass(const string &s, long an, double bal) {
-    fullName = s;
-    acctNum = an;
-    balance = bal;
-}
-
-void Brass::Deposit(double amt) {
-    if (amt < 0) {
-        cout << "Negative deposit not allowed; deposit is canceled.\n";
-    } else {
-        balance += amt;
-    }
+Brass::Brass(const string &s, long an, double bal): AcctABC(s, an, bal) {
+    
 }
 
 void Brass::Withdraw(double amt) {
-    format initialState = SetFormat();
-    precis prec = cout.precision(2);
-    
     if (amt < 0) {
         cout << "Withdraw amount must be positive; withdrawal canceled.\n";
-    } else if (amt <= balance) {
-        balance -= amt;
+    } else if (amt <= Balance()) {
+        AcctABC::Withdraw(amt);
     } else {
         cout << "Withdrawal amount of $" << amt << " exceeds your balance.\n Withdrawal canceled.\n";
     }
-    
-    Restore(initialState, prec);
-}
-
-double Brass::Balance() const {
-    return balance;
 }
 
 void Brass::ViewAcct() const {
-    format initialState = SetFormat();
-    precis prec = cout.precision(2);
+    Formatting f = SetFormat();
     
-    cout << "Client: " << fullName << endl;
-    cout << "Account Number: " << acctNum << endl;
-    cout << "Balance: $" << balance << endl;
+    cout << "Client: " << FullName() << endl;
+    cout << "Account Number: " << AcctNum() << endl;
+    cout << "Balance: $" << Balance() << endl;
     
-    Restore(initialState, prec);
+    Restore(f);
 }
 
 
 
-BrassPlus::BrassPlus(const string &s, long an, double bal, double ml, double r): Brass(s, an, bal) {
+BrassPlus::BrassPlus(const string &s, long an, double bal, double ml, double r): AcctABC(s, an, bal) {
     maxLoan = ml;
     owesBank = 0.0;
     rate = r;
 }
 
-BrassPlus::BrassPlus(const Brass &ba, double ml, double r): Brass(ba) {
+BrassPlus::BrassPlus(const Brass &ba, double ml, double r): AcctABC(ba) {
     maxLoan = ml;
     owesBank = 0.0;
     rate = r;
 }
 
 void BrassPlus::ViewAcct() const {
-    format initialState = SetFormat();
-    precis prec = cout.precision(2);
+    Formatting f = SetFormat();
     
-    Brass::ViewAcct();
+    cout << "BrassPlus Client: " << FullName() << endl;
+    cout << "Account Number: " << AcctNum() << endl;
+    cout << "Balance: $" << Balance() << endl;
     cout << "Maximum loan: $" << maxLoan << endl;
     cout << "Owed to bank: $" << owesBank << endl;
     cout.precision(3);
     cout << "Loan rate: " << 100 * rate << "%\n";
     
-    Restore(initialState, prec);
+    Restore(f);
 }
 
 void BrassPlus::Withdraw(double amt) {
-    format initialState = SetFormat();
-    precis prec = cout.precision(2);
+    Formatting f = SetFormat();
     
     double bal = Balance();
     if (amt <= bal) {
-        Brass::Withdraw(amt);
+        AcctABC::Withdraw(amt);
     } else if (amt <= bal + maxLoan - owesBank) {
         double advance = amt - bal;
         owesBank += advance * (1.0 * rate);
         cout << "Bank advance: $" << advance << endl;
         cout << "Finance charge: $" << advance * rate << endl;
         Deposit(advance);
-        Brass::Withdraw(amt);
+        AcctABC::Withdraw(amt);
     } else {
         cout << "Credit limit exceeded. Transaction cancelled.\n";
     }
     
-    Restore(initialState, prec);
+    Restore(f);
 }
-
-
-
-format SetFormat() {
-    return cout.setf(std::ios_base::fixed, std::ios_base::floatfield);
-}
-
-void Restore(format f, precis p) {
-    cout.setf(f, std::ios_base::floatfield);
-    cout.precision(p);
-}
-
 
 
 

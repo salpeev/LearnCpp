@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include "AcctABC.h"
 #include "Brass.h"
 
 using namespace std;
@@ -16,7 +17,7 @@ const int CLIENTS = 4;
 
 
 int main(void) {
-    Brass *p_clients[CLIENTS];
+    AcctABC *p_clients[CLIENTS];
     
     string temp;
     long tempnum;
