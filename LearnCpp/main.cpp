@@ -7,68 +7,37 @@
 //
 
 #include <iostream>
-#include "AcctABC.h"
-#include "Brass.h"
+#include "DMA.h"
 
 using namespace std;
-
-const int CLIENTS = 4;
 
 
 
 int main(void) {
-    AcctABC *p_clients[CLIENTS];
+    using std::cout;
+    using std::endl;
     
-    string temp;
-    long tempnum;
-    double tempbal;
-    char kind;
+    BaseDMA shirt("Portabelly", 8);
+    LacksDMA balloon("Red", "Blimpo", 4);
+    HasDMA map("Mercator", "Buffalo Keys", 5);
     
-    for (int i = 0; i < CLIENTS; i++) {
-        cout << "Enter clients name: ";
-        getline(cin, temp);
-        
-        cout << "Enter clients account number: ";
-        cin >> tempnum;
-        
-        cout << "Enter opening balance: $";
-        cin >> tempbal;
-        
-        cout << "Enter 1 for Brass account or 2 for BrassPlus account: ";
-        while (cin >> kind && (kind != '1' && kind != '2')) {
-            cout << "Enter either 1 or 2: ";
-        }
-        
-        if (kind == '1') {
-            p_clients[i] = new Brass(temp, tempnum, tempbal);
-        } else {
-            double tmax;
-            double trate;
-            
-            cout << "Enter the overdraft limit: $";
-            cin >> tmax;
-            
-            cout << "Enter the interest rate as a decimal function: ";
-            cin >> trate;
-            
-            p_clients[i] = new BrassPlus(temp, tempnum, tempbal, tmax, trate);
-        }
-        
-        while (cin.get() != '\n') {
-            continue;
-        }
-    }
+    cout << "Displaying BaseDMA object:\n";
+    cout << shirt << endl;
     
-    cout << endl;
+    cout << "Displaying LacksDMA object:\n";
+    cout << balloon << endl;
     
-    for (int i = 0; i < CLIENTS; i++) {
-        p_clients[i]->ViewAcct();
-        cout << endl;
-    }
+    cout << "Displaying HasDMA object:\n";
+    cout << map << endl;
     
-    for (int i = 0; i < CLIENTS; i++) {
-        delete p_clients[i];
-    }
+    LacksDMA balloon2(balloon);
+    cout << "Result of LacksDMA copy:\n";
+    cout << balloon2 << endl;
+    
+    HasDMA map2;
+    map2 = map;
+    cout << "Result of HasDMA assignment:\n";
+    cout << map2 << endl;
     
     return 0;
 }
