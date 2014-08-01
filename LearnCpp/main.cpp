@@ -7,37 +7,54 @@
 //
 
 #include <iostream>
-#include "DMA.h"
+#include "Student.h"
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
+
+
+
+void set(Student &sa, int n);
+
+
+
+const int pupils = 3;
+const int quizzes = 5;
 
 
 
 int main(void) {
-    using std::cout;
-    using std::endl;
+    Student ada[pupils] = {Student(quizzes), Student(quizzes), Student(quizzes)};
     
-    BaseDMA shirt("Portabelly", 8);
-    LacksDMA balloon("Red", "Blimpo", 4);
-    HasDMA map("Mercator", "Buffalo Keys", 5);
+    for (int i = 0; i < pupils; i++) {
+        set(ada[i], quizzes);
+    }
     
-    cout << "Displaying BaseDMA object:\n";
-    cout << shirt << endl;
+    cout << "\nStudent List:\n";
+    for (int i = 0; i < pupils; i++) {
+        cout << ada[i].Name() << endl;
+    }
     
-    cout << "Displaying LacksDMA object:\n";
-    cout << balloon << endl;
-    
-    cout << "Displaying HasDMA object:\n";
-    cout << map << endl;
-    
-    LacksDMA balloon2(balloon);
-    cout << "Result of LacksDMA copy:\n";
-    cout << balloon2 << endl;
-    
-    HasDMA map2;
-    map2 = map;
-    cout << "Result of HasDMA assignment:\n";
-    cout << map2 << endl;
+    cout << "\nResults:\n";
+    for (int i = 0; i < pupils; i++) {
+        cout << endl << ada[i];
+        cout << "average: " << ada[i].Average() << endl;
+    }
     
     return 0;
+}
+
+
+
+void set(Student &sa, int n) {
+    cout << "Please enter the students name:\n";
+    getline(cin, sa);
+    cout << "Please enter " << n << " quiz scores:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> sa[i];
+    }
+    while (cin.get() != '\n') {
+        continue;
+    }
 }
