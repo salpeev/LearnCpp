@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B42D6E5B17711586001C2579 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B42D6E5A17711586001C2579 /* main.cpp */; };
-		B486628C198BC0C5007A7E76 /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B486628A198BC0C5007A7E76 /* Student.cpp */; };
+		B4E95820198FA4CF00A66462 /* Waiter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E9581E198FA4CF00A66462 /* Waiter.cpp */; };
+		B4E95823198FA4E000A66462 /* Singer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E95821198FA4E000A66462 /* Singer.cpp */; };
+		B4E95825198FBA3E00A66462 /* Worker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E95824198FBA3E00A66462 /* Worker.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +28,12 @@
 /* Begin PBXFileReference section */
 		B42D6E5717711586001C2579 /* LearnCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42D6E5A17711586001C2579 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		B486628A198BC0C5007A7E76 /* Student.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Student.cpp; sourceTree = "<group>"; };
-		B486628B198BC0C5007A7E76 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		B4E9581C198F9D4300A66462 /* Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Worker.h; sourceTree = "<group>"; };
+		B4E9581E198FA4CF00A66462 /* Waiter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Waiter.cpp; sourceTree = "<group>"; };
+		B4E9581F198FA4CF00A66462 /* Waiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waiter.h; sourceTree = "<group>"; };
+		B4E95821198FA4E000A66462 /* Singer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singer.cpp; sourceTree = "<group>"; };
+		B4E95822198FA4E000A66462 /* Singer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singer.h; sourceTree = "<group>"; };
+		B4E95824198FBA3E00A66462 /* Worker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Worker.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				B42D6E5A17711586001C2579 /* main.cpp */,
-				B486628A198BC0C5007A7E76 /* Student.cpp */,
-				B486628B198BC0C5007A7E76 /* Student.h */,
+				B4E95824198FBA3E00A66462 /* Worker.cpp */,
+				B4E9581C198F9D4300A66462 /* Worker.h */,
+				B4E9581E198FA4CF00A66462 /* Waiter.cpp */,
+				B4E9581F198FA4CF00A66462 /* Waiter.h */,
+				B4E95821198FA4E000A66462 /* Singer.cpp */,
+				B4E95822198FA4E000A66462 /* Singer.h */,
 			);
 			path = LearnCpp;
 			sourceTree = "<group>";
@@ -119,7 +129,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B42D6E5B17711586001C2579 /* main.cpp in Sources */,
-				B486628C198BC0C5007A7E76 /* Student.cpp in Sources */,
+				B4E95825198FBA3E00A66462 /* Worker.cpp in Sources */,
+				B4E95820198FA4CF00A66462 /* Waiter.cpp in Sources */,
+				B4E95823198FA4E000A66462 /* Singer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
