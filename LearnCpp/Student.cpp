@@ -16,31 +16,31 @@ using std::string;
 
 
 double Student::Average() const {
-    if (scores.size() > 0) {
-        return scores.sum() / scores.size();
+    if (ArrayDb::size() > 0) {
+        return ArrayDb::sum() / ArrayDb::size();
     } else {
         return 0;
     }
 }
 
 const string & Student::Name() const {
-    return name;
+    return (const string &)*this;
 }
 
 double & Student::operator[](int i) {
-    return scores[i];
+    return ArrayDb::operator[](i);
 }
 
 double Student::operator[](int i) const {
-    return scores[i];
+    return ArrayDb::operator[](i);
 }
 
 ostream & Student::array_out(ostream &os) const {
     int i;
-    size_t lim = scores.size();
+    size_t lim = ArrayDb::size();
     if (lim > 0) {
         for (i = 0; i < lim; i++) {
-            os << scores[i] << " ";
+            os << ArrayDb::operator[](i) << " ";
             if (i % 5 == 4) {
                 os << endl;
             }
@@ -57,17 +57,17 @@ ostream & Student::array_out(ostream &os) const {
 }
 
 istream & operator>>(istream &is, Student &stu) {
-    is >> stu.name;
+    is >> (string &)stu;
     return is;
 }
 
 istream & getline(istream &is, Student &stu) {
-    getline(is, stu.name);
+    getline(is, (string &)stu);
     return is;
 }
 
 ostream & operator<<(ostream &os, const Student &stu) {
-    os << "Scores for: " << stu.name << ":\n";
+    os << "Scores for: " << (const string &)stu << ":\n";
     stu.array_out(os);
     return os;
 }
