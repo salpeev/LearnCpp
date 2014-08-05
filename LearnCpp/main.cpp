@@ -7,56 +7,55 @@
 //
 
 #include <iostream>
-#include <string>
-#include <cctype>
+#include <cstdlib>
+#include <ctime>
 #include "Stack.h"
 
-using std::cin;
-using std::cout;
+
+
+const int Num = 10;
 
 
 
 int main(void) {
-    Stack<std::string> st;
-    char ch;
-    std::string po;
-    cout << "Cout please enter A to add a purchase order,\nP to process a PO, or Q to quit.\n";
+    std::srand((unsigned int)std::time(nullptr));
     
-    while (cin >> ch && std::toupper(ch) != 'Q') {
-        while (cin.get() != '\n') {
-            continue;
+    std::cout << "Please enter stack size: ";
+    int stacksize;
+    std::cin >> stacksize;
+    
+    Stack<const char *> st(stacksize);
+    
+    const char *in[Num] = {
+        " 1: Hank Gilgamesh",
+        " 2: Kiki Ishtar",
+        " 3: Betty Rocker",
+        " 4: Ian Flagranti",
+        " 5: Wolfgang Kibble",
+        " 6: Portia Koop",
+        " 7: Joy Almondo",
+        " 8: Xaverie Paprika",
+        " 9: Juan Moore",
+        " 10: Misha Mache"
+    };
+    
+    const char *out[Num];
+    int processed = 0;
+    int nextin = 0;
+    while (processed < Num) {
+        if (st.isempty()) {
+            st.push(in[nextin++]);
+        } else if (st.isfull()) {
+            st.pop(out[processed++]);
+        } else if (std::rand() % 2 && nextin < Num) {
+            st.push(in[nextin++]);
+        } else {
+            st.pop(out[processed++]);
         }
-        
-        if (!std::isalpha(ch)) {
-            cout << '\a';
-            continue;
-        }
-        
-        switch (ch) {
-            case 'A':
-            case 'a': {
-                cout << "Enter a PO number to add: ";
-                cin >> po;
-                if (st.isfull()) {
-                    cout << "stack already full\n";
-                } else {
-                    st.push(po);
-                }
-                break;
-            }
-            case 'P':
-            case 'p': {
-                if (st.isempty()) {
-                    cout << "stack already empty\n";
-                } else {
-                    st.pop(po);
-                    cout << "PO #" << po << " popped\n";
-                }
-                break;
-            }
-        }
-        
-        cout << "Cout please enter A to add a purchase order,\nP to process a PO, or Q to quit.\n";
+    }
+    
+    for (int i = 0; i < Num; i++) {
+        std::cout << out[i] << std::endl;
     }
     
     return 0;
