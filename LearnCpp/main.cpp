@@ -7,64 +7,56 @@
 //
 
 #include <iostream>
-#include "SingingWaiter.h"
+#include <string>
+#include <cctype>
+#include "Stack.h"
 
 using std::cin;
 using std::cout;
-using std::endl;
-using std::strchr;
-
-
-
-const int SIZE = 5;
 
 
 
 int main(void) {
-    Worker *lolas[SIZE];
+    Stack<std::string> st;
+    char ch;
+    std::string po;
+    cout << "Cout please enter A to add a purchase order,\nP to process a PO, or Q to quit.\n";
     
-    int ct;
-    for (ct = 0; ct < SIZE; ct++) {
-        char choice;
-        cout << "Enter the employee category:\nw: waiter   s: singer   t: singing waiter   q: quit\n";
-        cin >> choice;
-        
-        while (strchr("wstq", choice) == nullptr) {
-            cout << "Please enter a w, s, t or q: ";
-            cin >> choice;
+    while (cin >> ch && std::toupper(ch) != 'Q') {
+        while (cin.get() != '\n') {
+            continue;
         }
         
-        if (choice == 'q') {
-            break;
+        if (!std::isalpha(ch)) {
+            cout << '\a';
+            continue;
         }
         
-        switch (choice) {
-            case 'w': {
-                lolas[ct] = new Waiter;
+        switch (ch) {
+            case 'A':
+            case 'a': {
+                cout << "Enter a PO number to add: ";
+                cin >> po;
+                if (st.isfull()) {
+                    cout << "stack already full\n";
+                } else {
+                    st.push(po);
+                }
                 break;
             }
-            case 's': {
-                lolas[ct] = new Singer;
-                break;
-            }
-            case 't': {
-                lolas[ct] = new SingingWaiter;
+            case 'P':
+            case 'p': {
+                if (st.isempty()) {
+                    cout << "stack already empty\n";
+                } else {
+                    st.pop(po);
+                    cout << "PO #" << po << " popped\n";
+                }
                 break;
             }
         }
         
-        cin.get();
-        lolas[ct]->Set();
-    }
-    
-    cout << "\nHere is your staff:\n";
-    for (int i = 0; i < ct; i++) {
-        cout << endl;
-        lolas[i]->Show();
-    }
-    
-    for (int i = 0; i < ct; i++) {
-        delete lolas[i];
+        cout << "Cout please enter A to add a purchase order,\nP to process a PO, or Q to quit.\n";
     }
     
     return 0;
