@@ -11,6 +11,7 @@
 		B4E95820198FA4CF00A66462 /* Waiter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E9581E198FA4CF00A66462 /* Waiter.cpp */; };
 		B4E95823198FA4E000A66462 /* Singer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E95821198FA4E000A66462 /* Singer.cpp */; };
 		B4E95825198FBA3E00A66462 /* Worker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E95824198FBA3E00A66462 /* Worker.cpp */; };
+		B4E95828198FCF5C00A66462 /* SingingWaiter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E95826198FCF5C00A66462 /* SingingWaiter.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		B4E95821198FA4E000A66462 /* Singer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singer.cpp; sourceTree = "<group>"; };
 		B4E95822198FA4E000A66462 /* Singer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singer.h; sourceTree = "<group>"; };
 		B4E95824198FBA3E00A66462 /* Worker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Worker.cpp; sourceTree = "<group>"; };
+		B4E95826198FCF5C00A66462 /* SingingWaiter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SingingWaiter.cpp; sourceTree = "<group>"; };
+		B4E95827198FCF5C00A66462 /* SingingWaiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingingWaiter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				B4E9581F198FA4CF00A66462 /* Waiter.h */,
 				B4E95821198FA4E000A66462 /* Singer.cpp */,
 				B4E95822198FA4E000A66462 /* Singer.h */,
+				B4E95826198FCF5C00A66462 /* SingingWaiter.cpp */,
+				B4E95827198FCF5C00A66462 /* SingingWaiter.h */,
 			);
 			path = LearnCpp;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4E95828198FCF5C00A66462 /* SingingWaiter.cpp in Sources */,
 				B42D6E5B17711586001C2579 /* main.cpp in Sources */,
 				B4E95825198FBA3E00A66462 /* Worker.cpp in Sources */,
 				B4E95820198FA4CF00A66462 /* Waiter.cpp in Sources */,

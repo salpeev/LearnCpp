@@ -18,8 +18,12 @@ public:
     Worker(const std::string &s, long n): fullname(s), workerId(n) {}
     virtual ~Worker() = 0;
     
-    virtual void Set();
-    virtual void Show() const;
+    virtual void Set() = 0;
+    virtual void Show() const = 0;
+    
+protected:
+    virtual void Data() const;
+    virtual void Get();
     
 private:
     std::string fullname;

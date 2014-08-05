@@ -13,7 +13,7 @@
 
 
 
-class Waiter: public Worker {
+class Waiter: virtual public Worker {
 public:
     Waiter(): Worker(), panache(0) {}
     Waiter(const std::string &s, long n, int p = 0): Worker(s, n), panache(p) {}
@@ -21,6 +21,10 @@ public:
     
     void Set();
     void Show() const;
+    
+protected:
+    void Data() const;
+    void Get();
     
 private:
     int panache;

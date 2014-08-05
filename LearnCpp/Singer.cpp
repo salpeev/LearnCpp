@@ -20,8 +20,23 @@ const char * Singer::pv[] = {"other", "alto", "contralto", "soprano", "bass", "b
 
 
 void Singer::Set() {
-    Worker::Set();
+    cout << "Enter singer's name: ";
+    Worker::Get();
+    Get();
+}
+
+void Singer::Show() const {
+    cout << "Category: singer\n";
+    Worker::Data();
+    Data();
+}
+
+void Singer::Data() const {
+    cout << "Vocal range: " << pv[voice] << endl;
     
+}
+
+void Singer::Get() {
     cout << "Enter number for singer's vocal range:\n";
     
     int i;
@@ -43,10 +58,4 @@ void Singer::Set() {
     while (cin.get() != '\n') {
         continue;
     }
-}
-
-void Singer::Show() const {
-    cout << "Category: singer\n";
-    Worker::Show();
-    cout << "Vocal range: " << pv[voice] << endl;
 }

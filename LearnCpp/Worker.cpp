@@ -19,18 +19,16 @@ Worker::~Worker() {
     
 }
 
-void Worker::Set() {
-    cout << "Enter workers name: ";
+void Worker::Data() const {
+    cout << "Name: " << fullname << endl;
+    cout << "Employee ID: " << workerId << endl;
+}
+
+void Worker::Get() {
     getline(cin, fullname);
-    cout << "Enter workers id: ";
+    cout << "Enter worker's ID: ";
     cin >> workerId;
-    
     while (cin.get() != '\n') {
         continue;
     }
-}
-
-void Worker::Show() const {
-    cout << "Name: " << fullname << endl;
-    cout << "Employee ID: " << workerId << endl;
 }

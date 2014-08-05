@@ -16,18 +16,25 @@ using std::endl;
 
 
 void Waiter::Set() {
-    Worker::Set();
-    
-    cout << "Enter waiter's panache rating: ";
-    cin >> panache;
-    
-    while (cin.get() != '\n') {
-        continue;
-    }
+    cout << "Enter waiter's name: ";
+    Worker::Get();
+    Get();
 }
 
 void Waiter::Show() const {
     cout << "Category: waiter\n";
-    Worker::Show();
+    Worker::Data();
+    Data();
+}
+
+void Waiter::Data() const {
     cout << "Panache rating: " << panache << endl;
+}
+
+void Waiter::Get() {
+    cout << "Enter waiter's panache rating: ";
+    cin >> panache;
+    while (cin.get() != '\n') {
+        continue;
+    }
 }

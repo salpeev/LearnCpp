@@ -12,7 +12,7 @@
 #include "Worker.h"
 
 
-class Singer: public Worker {
+class Singer: virtual public Worker {
 public:
     Singer(): Worker(), voice(other) {}
     Singer(const std::string &s, long n, int v = other): Worker(s, n), voice(v) {}
@@ -35,6 +35,9 @@ protected:
     enum {
         Vtypes = 7
     };
+    
+    void Data() const;
+    void Get();
     
 private:
     static const char *pv[Vtypes];
