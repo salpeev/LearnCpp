@@ -7,32 +7,29 @@
 //
 
 #include <iostream>
-#include "Crab.h"
-#include "Stack.h"
+#include "HasFriend.h"
 
 
 
 int main(void) {
-    using std::cout;
-    using std::cin;
-    using std::endl;
+    cout << "No objects declared:\n";
+    counts();
     
-    Crab<Stack> nebula;
+    HasFriend<int> hfi1(10);
+    cout << "After hfi1 declared:\n";
+    counts();
     
-    int ni;
-    double nb;
+    HasFriend<int> hfi2(20);
+    cout << "After hfi2 declared:\n";
+    counts();
     
-    cout << "Enter int double pairs, such as 4 3.5 (0 0 to end):\n";
+    HasFriend<double> hfd1(10.5);
+    cout << "After hfd1 declared:\n";
+    counts();
     
-    while (cin >> ni >> nb && ni > 0 && nb > 0) {
-        if (!nebula.push(ni, nb)) {
-            break;
-        }
-    }
-    
-    while (nebula.pop(ni, nb)) {
-        cout << ni << ", " << nb << endl;
-    }
+    reports(hfi1);
+    reports(hfi2);
+    reports(hfd1);
     
     return 0;
 }
