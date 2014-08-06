@@ -23,9 +23,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B41E6D6419926173000BB57C /* Stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		B41E6D65199261A2000BB57C /* Crab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Crab.h; sourceTree = "<group>"; };
 		B42D6E5717711586001C2579 /* LearnCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42D6E5A17711586001C2579 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		B43FEF3D199244FD0039F38C /* Beta.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Beta.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				B42D6E5A17711586001C2579 /* main.cpp */,
-				B43FEF3D199244FD0039F38C /* Beta.h */,
+				B41E6D6419926173000BB57C /* Stack.h */,
+				B41E6D65199261A2000BB57C /* Crab.h */,
 			);
 			path = LearnCpp;
 			sourceTree = "<group>";
