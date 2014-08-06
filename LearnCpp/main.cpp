@@ -7,38 +7,34 @@
 //
 
 #include <iostream>
-#include "Array.h"
+#include "Pair.h"
 
 
 
 int main(void) {
     using std::cout;
     using std::endl;
+    using std::string;
     
-    Array<int, 10> sums;
-    Array<double, 10> aves;
-    Array<Array<int, 5>, 10> twodee;
+    Pair<string, int> ratings[4] = {
+        Pair<string, int>("The Purpled Duck", 5),
+        Pair<string, int>("Jaquie's Frisco Al Fresco", 4),
+        Pair<string, int>("Cafe Soufle", 5),
+        Pair<string, int>("Bertie's eats", 3)
+    };
     
-    for (int i = 0; i < 10; i++) {
-        sums[i] = 0;
-        
-        for (int j = 0; j < 5; j++) {
-            twodee[i][j] = (i + 1) * (j + 1);
-            sums[i] += twodee[i][j];
-        }
-        
-        aves[i] = (double)sums[i] / 10;
+    int joints = sizeof(ratings) / sizeof(Pair<string, int>);
+    
+    cout << "Rating:\t Eatery\n";
+    for (int i = 0; i < joints; i++) {
+        cout << ratings[i].second() << ": " << ratings[i].first() << endl;
     }
     
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 5; j++) {
-            cout.width(2);
-            cout << twodee[i][j] << ' ';
-        }
-        cout << ": sum = ";
-        cout.width(3);
-        cout << sums[i] << ", average = " << aves[i] << endl;
-    }
+    cout << "Oops! Revised rating:\n";
+    ratings[3].first() = "Bertie's Fab Eats";
+    ratings[3].second() = 6;
+    cout << ratings[3].second() << ": " << ratings[3].first() << endl;
+    
     
     return 0;
 }
