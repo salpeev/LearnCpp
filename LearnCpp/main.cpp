@@ -7,55 +7,37 @@
 //
 
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include "Stack.h"
-
-
-
-const int Num = 10;
+#include "Array.h"
 
 
 
 int main(void) {
-    std::srand((unsigned int)std::time(nullptr));
+    using std::cout;
+    using std::endl;
     
-    std::cout << "Please enter stack size: ";
-    int stacksize;
-    std::cin >> stacksize;
+    Array<int, 10> sums;
+    Array<double, 10> aves;
+    Array<Array<int, 5>, 10> twodee;
     
-    Stack<const char *> st(stacksize);
-    
-    const char *in[Num] = {
-        " 1: Hank Gilgamesh",
-        " 2: Kiki Ishtar",
-        " 3: Betty Rocker",
-        " 4: Ian Flagranti",
-        " 5: Wolfgang Kibble",
-        " 6: Portia Koop",
-        " 7: Joy Almondo",
-        " 8: Xaverie Paprika",
-        " 9: Juan Moore",
-        " 10: Misha Mache"
-    };
-    
-    const char *out[Num];
-    int processed = 0;
-    int nextin = 0;
-    while (processed < Num) {
-        if (st.isempty()) {
-            st.push(in[nextin++]);
-        } else if (st.isfull()) {
-            st.pop(out[processed++]);
-        } else if (std::rand() % 2 && nextin < Num) {
-            st.push(in[nextin++]);
-        } else {
-            st.pop(out[processed++]);
+    for (int i = 0; i < 10; i++) {
+        sums[i] = 0;
+        
+        for (int j = 0; j < 5; j++) {
+            twodee[i][j] = (i + 1) * (j + 1);
+            sums[i] += twodee[i][j];
         }
+        
+        aves[i] = (double)sums[i] / 10;
     }
     
-    for (int i = 0; i < Num; i++) {
-        std::cout << out[i] << std::endl;
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 5; j++) {
+            cout.width(2);
+            cout << twodee[i][j] << ' ';
+        }
+        cout << ": sum = ";
+        cout.width(3);
+        cout << sums[i] << ", average = " << aves[i] << endl;
     }
     
     return 0;
