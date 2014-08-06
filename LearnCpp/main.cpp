@@ -7,34 +7,19 @@
 //
 
 #include <iostream>
-#include "Pair.h"
+#include "Beta.h"
 
 
 
 int main(void) {
-    using std::cout;
-    using std::endl;
-    using std::string;
-    
-    Pair<string, int> ratings[4] = {
-        Pair<string, int>("The Purpled Duck", 5),
-        Pair<string, int>("Jaquie's Frisco Al Fresco", 4),
-        Pair<string, int>("Cafe Soufle", 5),
-        Pair<string, int>("Bertie's eats", 3)
-    };
-    
-    int joints = sizeof(ratings) / sizeof(Pair<string, int>);
-    
-    cout << "Rating:\t Eatery\n";
-    for (int i = 0; i < joints; i++) {
-        cout << ratings[i].second() << ": " << ratings[i].first() << endl;
-    }
-    
-    cout << "Oops! Revised rating:\n";
-    ratings[3].first() = "Bertie's Fab Eats";
-    ratings[3].second() = 6;
-    cout << ratings[3].second() << ": " << ratings[3].first() << endl;
-    
+    Beta<double> guy(3.5, 3);
+    cout << "T was set to double\n";
+    guy.Show();
+    cout << "V was set to T, which is double, then V was set to int\n";
+    cout << guy.blab(10, 2.3) << endl;
+    cout << "U was set to int\n";
+    cout << guy.blab(10.0, 2.3) << endl;
+    cout << "U was set to double\n";
     
     return 0;
 }
