@@ -7,26 +7,20 @@
 //
 
 #include <iostream>
-#include "HasFriendT.h"
+#include "ManyFriend.h"
 
 
 
-int main(void) {
-    counts<int>();
+int main() {
+    ManyFriend<int> hfi1(10);
+    ManyFriend<int> hfi2(10);
+    ManyFriend<double> hfdb(10.5);
     
-    HasFriendT<int> hfi1(10);
-    HasFriendT<int> hfi2(20);
-    HasFriendT<double> hfdb(10.5);
+    cout << "hfi1, hfi2: ";
+    show2(hfi1, hfi2);
     
-    report(hfi1);
-    report(hfi2);
-    report(hfdb);
-    
-    cout << "counts<int>() output: ";
-    counts<int>();
-    
-    cout << "counts<double>() output: ";
-    counts<double>();
+    cout << "hfdb, hfi2: ";
+    show2(hfdb, hfi2);
     
     return 0;
 }

@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		B42D6E5717711586001C2579 /* LearnCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42D6E5A17711586001C2579 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		B4E82C7A1993674A0006FE74 /* HasFriendT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HasFriendT.h; sourceTree = "<group>"; };
+		B4E82C7B19936FBF0006FE74 /* ManyFriend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManyFriend.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				B42D6E5A17711586001C2579 /* main.cpp */,
-				B4E82C7A1993674A0006FE74 /* HasFriendT.h */,
+				B4E82C7B19936FBF0006FE74 /* ManyFriend.h */,
 			);
 			path = LearnCpp;
 			sourceTree = "<group>";
