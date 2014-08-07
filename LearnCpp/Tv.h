@@ -9,11 +9,15 @@
 #ifndef TV_H_
 #define TV_H_
 
+#include "Remote.h"
+
+
+
 class Tv {
 public:
-    friend class Remote;
+    friend void Remote::set_chan(Tv &t, int c);
     
-    enum {Off, On};
+    enum State {Off, On};
     enum {MinVal, MaxVal = 20};
     enum {Antenna, Cable};
     enum {TV, DVD};

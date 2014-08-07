@@ -9,22 +9,27 @@
 #ifndef REMOTE_H_
 #define REMOTE_H_
 
-#include "Tv.h"
+class Tv;
 
 
 
 class Remote {
 public:
-    Remote(int m = Tv::TV): mode(m) {}
+    enum State {Off, On};
+    enum {MinVal, MaxVal = 20};
+    enum {Antenna, Cable};
+    enum {TV, DVD};
     
-    bool volup(Tv &t) {return t.volup();}
-    bool voldown(Tv &t) {return t.voldown();}
-    void onoff(Tv &t) {t.onoff();}
-    void chanup(Tv &t) {t.chanup();}
-    void chandown(Tv &t) {t.chandown();}
-    void set_chan(Tv &t, int c) {t.channel = c;}
-    void set_mode(Tv &t) {t.set_mode();}
-    void set_input(Tv &t) {t.set_input();}
+    Remote(int m = TV): mode(m) {}
+    
+    bool volup(Tv &t);
+    bool voldown(Tv &t);
+    void onoff(Tv &t);
+    void chanup(Tv &t);
+    void chandown(Tv &t);
+    void set_chan(Tv &t, int c);
+    void set_mode(Tv &t);
+    void set_input(Tv &t);
     
 private:
     int mode;

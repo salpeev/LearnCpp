@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B42D6E5B17711586001C2579 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B42D6E5A17711586001C2579 /* main.cpp */; };
 		B4E82C7E19938CFC0006FE74 /* Tv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E82C7C19938CFC0006FE74 /* Tv.cpp */; };
+		B4E82C831993B9190006FE74 /* Remote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E82C821993B9190006FE74 /* Remote.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 		B4E82C7C19938CFC0006FE74 /* Tv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tv.cpp; sourceTree = "<group>"; };
 		B4E82C7D19938CFC0006FE74 /* Tv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tv.h; sourceTree = "<group>"; };
 		B4E82C80199390CA0006FE74 /* Remote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Remote.h; sourceTree = "<group>"; };
+		B4E82C821993B9190006FE74 /* Remote.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Remote.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				B42D6E5A17711586001C2579 /* main.cpp */,
 				B4E82C7C19938CFC0006FE74 /* Tv.cpp */,
 				B4E82C7D19938CFC0006FE74 /* Tv.h */,
+				B4E82C821993B9190006FE74 /* Remote.cpp */,
 				B4E82C80199390CA0006FE74 /* Remote.h */,
 			);
 			path = LearnCpp;
@@ -122,6 +125,7 @@
 			files = (
 				B42D6E5B17711586001C2579 /* main.cpp in Sources */,
 				B4E82C7E19938CFC0006FE74 /* Tv.cpp in Sources */,
+				B4E82C831993B9190006FE74 /* Remote.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
