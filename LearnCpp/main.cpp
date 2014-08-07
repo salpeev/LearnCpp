@@ -7,29 +7,26 @@
 //
 
 #include <iostream>
-#include "HasFriend.h"
+#include "HasFriendT.h"
 
 
 
 int main(void) {
-    cout << "No objects declared:\n";
-    counts();
+    counts<int>();
     
-    HasFriend<int> hfi1(10);
-    cout << "After hfi1 declared:\n";
-    counts();
+    HasFriendT<int> hfi1(10);
+    HasFriendT<int> hfi2(20);
+    HasFriendT<double> hfdb(10.5);
     
-    HasFriend<int> hfi2(20);
-    cout << "After hfi2 declared:\n";
-    counts();
+    report(hfi1);
+    report(hfi2);
+    report(hfdb);
     
-    HasFriend<double> hfd1(10.5);
-    cout << "After hfd1 declared:\n";
-    counts();
+    cout << "counts<int>() output: ";
+    counts<int>();
     
-    reports(hfi1);
-    reports(hfi2);
-    reports(hfd1);
+    cout << "counts<double>() output: ";
+    counts<double>();
     
     return 0;
 }
