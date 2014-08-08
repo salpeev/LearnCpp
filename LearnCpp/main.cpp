@@ -7,31 +7,34 @@
 //
 
 #include <iostream>
-#include <string>
-#include "Queue.h"
+#include <cstdlib>
+
+
+
+double hmean(double a, double b);
 
 
 
 int main() {
-    using std::string;
-    using std::cout;
-    using std::cin;
+    double x, y, z;
+    std::cout << "Enter two numbers: ";
     
-    Queue<string> cs(5);
-    string temp;
-    
-    while (!cs.isfull()) {
-        cout << "Please enter your name. You will be served in the order of arrival.\nname: ";
-        getline(cin, temp);
-        cs.enqueue(temp);
-    }
-    
-    cout << "The queue is full. Processing begins.\n";
-    
-    while (!cs.isempty()) {
-        cs.dequeue(temp);
-        cout << "Now processing " << temp << "...\n";
+    while (std::cin >> x >> y) {
+        z = hmean(x, y);
+        std::cout << "Harmonic mean of " << x << " and " << y << " is " << z << std::endl;
+        std::cout << "Enter next set of numbers <q to quit>: ";
     }
     
     return 0;
+}
+
+
+
+double hmean(double a, double b) {
+    if (a == -b) {
+        std::cout << "untenable arguments to hmean()\n";
+        std::abort();
+    }
+    
+    return 2 * a * b / (a + b);
 }
