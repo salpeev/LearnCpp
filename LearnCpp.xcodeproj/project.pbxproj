@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B42D6E5B17711586001C2579 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B42D6E5A17711586001C2579 /* main.cpp */; };
-		B4E82C7E19938CFC0006FE74 /* Tv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E82C7C19938CFC0006FE74 /* Tv.cpp */; };
-		B4E82C831993B9190006FE74 /* Remote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4E82C821993B9190006FE74 /* Remote.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,10 +25,7 @@
 /* Begin PBXFileReference section */
 		B42D6E5717711586001C2579 /* LearnCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42D6E5A17711586001C2579 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		B4E82C7C19938CFC0006FE74 /* Tv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tv.cpp; sourceTree = "<group>"; };
-		B4E82C7D19938CFC0006FE74 /* Tv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tv.h; sourceTree = "<group>"; };
-		B4E82C80199390CA0006FE74 /* Remote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Remote.h; sourceTree = "<group>"; };
-		B4E82C821993B9190006FE74 /* Remote.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Remote.cpp; sourceTree = "<group>"; };
+		B4C70B681994C0AD009F3CEA /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				B42D6E5A17711586001C2579 /* main.cpp */,
-				B4E82C7C19938CFC0006FE74 /* Tv.cpp */,
-				B4E82C7D19938CFC0006FE74 /* Tv.h */,
-				B4E82C821993B9190006FE74 /* Remote.cpp */,
-				B4E82C80199390CA0006FE74 /* Remote.h */,
+				B4C70B681994C0AD009F3CEA /* Queue.h */,
 			);
 			path = LearnCpp;
 			sourceTree = "<group>";
@@ -124,8 +116,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B42D6E5B17711586001C2579 /* main.cpp in Sources */,
-				B4E82C7E19938CFC0006FE74 /* Tv.cpp in Sources */,
-				B4E82C831993B9190006FE74 /* Remote.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
